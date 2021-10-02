@@ -1,0 +1,11 @@
+﻿FriendlyName: Paystack
+Description: Paystack payment integration
+SystemName: SmartStore.Paystack
+Group: Payment
+Version: 4.1.5
+MinAppVersion: 4.1.1
+Author: Olamide James Akinnagbe
+DisplayOrder: 1
+FileName: SmartStore.Paystack.dll
+ResourceRootKey: Plugins.SmartStore.Paystack
+Url: https://paystack.com/docs/api/#introduction

@@ -1,0 +1,74 @@
+﻿@model SmartStore.Paystack.Models.ConfigurationModel
+@using SmartStore.Web.Framework;
+@{
+    Layout = "";
+}
+
+<div class="plugin-actions">
+    <button type="submit" name="save" value="save" class="btn btn-warning">
+        <i class="fa fa-check"></i>
+        <span>@T("Admin.Common.Save")</span>
+    </button>
+</div>	
+
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+
+<div class="alert alert-info">
+    @Html.Raw(@T("Plugins.SmartStore.Paystack.AdminInstruction"))
+</div>
+
+@using (Html.BeginForm())
+{
+<div class="adminContent">
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.BaseUrl)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.BaseUrl)
+            @Html.ValidationMessageFor(model => model.BaseUrl)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.PublicKey)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.PublicKey)
+            @Html.ValidationMessageFor(model => model.PublicKey)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.PrivateKey)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.PrivateKey)
+            @Html.ValidationMessageFor(model => model.PrivateKey)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.SupportsRefund)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.SupportsRefund)
+            @Html.ValidationMessageFor(model => model.SupportsRefund)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.CallBackUrl)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.CallBackUrl)
+            @Html.ValidationMessageFor(model => model.CallBackUrl)
+        </div>
+    </div>
+
+</div>
+}
