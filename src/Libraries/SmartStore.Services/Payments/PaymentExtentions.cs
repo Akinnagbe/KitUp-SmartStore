@@ -60,7 +60,10 @@ namespace SmartStore.Services.Payments
             {
                 // Percentage
                 decimal? orderTotalWithoutPaymentFee = orderTotalCalculationService.GetShoppingCartTotal(cart, usePaymentMethodAdditionalFee: false);
+                                
                 result = (decimal)((((float)orderTotalWithoutPaymentFee) * ((float)fee)) / 100f);
+
+                result = result > 2000 ? 2000 : result;
             }
             else
             {
