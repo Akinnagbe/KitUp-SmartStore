@@ -38,11 +38,11 @@ namespace SmartStore.Paystack.Models
         //[SmartResourceDisplayName("Plugins.Payments.Paystack.AccountPassword")]
         //public string AccountPassword { get; set; }
 
-        //[SmartResourceDisplayName("Plugins.Payments.Paystack.AdditionalFee")]
-        //public decimal AdditionalFee { get; set; }
+        [SmartResourceDisplayName("Plugins.Payments.Paystack.AdditionalFee")]
+        public decimal AdditionalFee { get; set; }
 
-        //[SmartResourceDisplayName("Plugins.Payments.Paystack.AdditionalFeePercentage")]
-        //public bool AdditionalFeePercentage { get; set; }
+        [SmartResourceDisplayName("Plugins.Payments.Paystack.AdditionalFeePercentage")]
+        public bool AdditionalFeePercentage { get; set; }
 
 
         //#region Sample properties

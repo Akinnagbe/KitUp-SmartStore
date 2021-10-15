@@ -136,7 +136,7 @@ namespace SmartStore.Paystack
         {
             var store = _services.StoreContext.CurrentStore;
             var settings = _services.Settings.LoadSetting<PaystackSettings>(_services.StoreContext.CurrentStore.Id);
-            var returnUrl = _services.WebHelper.GetStoreLocation(store.SslEnabled) + "Plugins/SmartStore.PaystackPayment/PaymentConfirmation";
+            var returnUrl = _services.WebHelper.GetStoreLocation(store.SslEnabled) + "Plugins/Paystack/PaymentConfirmation";
 
             using (var httpclient = new HttpClient())
             {
@@ -177,9 +177,9 @@ namespace SmartStore.Paystack
             var result = decimal.Zero;
             try
             {
-              //  var settings = _services.Settings.LoadSetting<PaystackSettings>(_services.StoreContext.CurrentStore.Id);
+                var settings = _services.Settings.LoadSetting<PaystackSettings>(_services.StoreContext.CurrentStore.Id);
 
-             //   result = this.CalculateAdditionalFee(_orderTotalCalculationService, cart, settings.AdditionalFee, settings.AdditionalFeePercentage);
+                result = this.CalculateAdditionalFee(_orderTotalCalculationService, cart, settings.AdditionalFee, settings.AdditionalFeePercentage);
             }
             catch (Exception ex)
             {

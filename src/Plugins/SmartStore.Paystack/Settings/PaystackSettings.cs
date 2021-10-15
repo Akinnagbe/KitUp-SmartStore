@@ -27,8 +27,8 @@ namespace SmartStore.Paystack.Settings
         //public bool UseSandbox { get; set; }
         //public string AccountId { get; set; }
         //public string AccountPassword { get; set; }
-        //public decimal AdditionalFee { get; set; }
-        //public bool AdditionalFeePercentage { get; set; }
+        public decimal AdditionalFee { get; set; }
+        public bool AdditionalFeePercentage { get; set; }
 
     }
 }
