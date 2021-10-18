@@ -1,0 +1,59 @@
+﻿@model SmartStore.ShippingByDistance.Models.ConfigurationModel
+@using SmartStore.Web.Framework;
+@{
+    Layout = "";
+}
+
+<div class="plugin-actions">
+    <button type="submit" name="save" value="save" class="btn btn-warning">
+        <i class="fa fa-check"></i>
+        <span>@T("Admin.Common.Save")</span>
+    </button>
+</div>	
+
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+
+<div class="alert alert-info">
+    @Html.Raw(@T("Plugins.SmartStore.ShippingByDistance.AdminInstruction"))
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="adminContent">
+		
+
+        
+       
+        <div class="adminRow">
+			<div class="adminTitle">
+                @Html.SmartLabelFor(model => model.IsFixedRate)
+            </div>
+			<div class="adminData">
+                @Html.SettingEditorFor(model => model.IsFixedRate)
+                @Html.ValidationMessageFor(model => model.IsFixedRate)
+            </div>
+        </div>
+        <div class="adminRow">
+			<div class="adminTitle">
+                @Html.SmartLabelFor(model => model.FixedAmount)
+            </div>
+			<div class="adminData">
+                @Html.SettingEditorFor(model => model.FixedAmount)
+                @Html.ValidationMessageFor(model => model.FixedAmount)
+            </div>
+        </div>
+        
+
+        <div class="adminRow">
+            <div class="adminTitle">
+                @Html.SmartLabelFor(model => model.PackageManApiBaseUrl)
+            </div>
+            <div class="adminData">
+                @Html.SettingEditorFor(model => model.PackageManApiBaseUrl)
+                @Html.ValidationMessageFor(model => model.PackageManApiBaseUrl)
+            </div>
+        </div>
+
+        
+    </div>
+}

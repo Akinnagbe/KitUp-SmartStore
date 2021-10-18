@@ -1,0 +1,10 @@
+﻿FriendlyName: Shipping By Distance
+SystemName: SmartStore.ShippingByDistance
+Group: Shipping
+Version: 4.1.1
+MinAppVersion: 4.1.1
+Author: Olamide James Akinnagbe
+DisplayOrder: 1
+FileName: SmartStore.ShippingByDistance.dll
+ResourceRootKey: Plugins.SmartStore.ShippingByDistance
+Url: 
