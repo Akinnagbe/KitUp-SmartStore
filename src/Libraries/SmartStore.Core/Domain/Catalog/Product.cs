@@ -1024,5 +1024,14 @@ namespace SmartStore.Core.Domain.Catalog
             get => _productBundleItems ?? (_productBundleItems = new HashSet<ProductBundleItem>());
             protected set => _productBundleItems = value;
         }
+
+        /// <summary>
+        /// Gets or Sets the Vendor of the Product if available
+        /// </summary>
+        [DataMember]
+        public int? ProductVendorId { get; set; }
+
+        [DataMember]
+        public virtual ProductVendor ProductVendor { get; set; }
     }
 }

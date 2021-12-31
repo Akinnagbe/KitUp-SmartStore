@@ -218,6 +218,7 @@
     <Compile Include="Domain\Catalog\ProductAttributeOption.cs" />
     <Compile Include="Domain\Catalog\ProductAttributeOptionsSet.cs" />
     <Compile Include="Domain\Catalog\ProductCondition.cs" />
+    <Compile Include="Domain\Catalog\ProductVendor.cs" />
     <Compile Include="Domain\Catalog\ProductVisibility.cs" />
     <Compile Include="Domain\Catalog\QuantiyControlType.cs" />
     <Compile Include="Domain\Catalog\IPagingOptions.cs" />
