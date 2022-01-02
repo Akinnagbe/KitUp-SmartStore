@@ -75,11 +75,6 @@ namespace SmartStore.Data.Mapping.Catalog
                 .WithMany(pt => pt.Products)
                 .Map(m => m.ToTable("Product_ProductTag_Mapping"));
 
-            this.HasOptional(p => p.ProductVendor)
-                .WithMany()
-                .HasForeignKey(p => p.ProductVendorId)
-                .WillCascadeOnDelete(false);
-               
         }
     }
 }

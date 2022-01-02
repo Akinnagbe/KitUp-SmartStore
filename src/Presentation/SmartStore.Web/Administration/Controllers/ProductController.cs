@@ -98,6 +98,7 @@ namespace SmartStore.Admin.Controllers
         private readonly ICommonServices _services;
         private readonly ICountryService _countryService;
         private readonly ICatalogSearchService _catalogSearchService;
+        private readonly IProductVendorService _productVendorService;
         private readonly ProductUrlHelper _productUrlHelper;
         private readonly SeoSettings _seoSettings;
         private readonly MediaSettings _mediaSettings;
@@ -149,6 +150,7 @@ namespace SmartStore.Admin.Controllers
             ICommonServices services,
             ICountryService countryService,
             ICatalogSearchService catalogSearchService,
+            IProductVendorService productVendorService,
             ProductUrlHelper productUrlHelper,
             SeoSettings seoSettings,
             MediaSettings mediaSettings,
@@ -195,6 +197,7 @@ namespace SmartStore.Admin.Controllers
             _services = services;
             _countryService = countryService;
             _catalogSearchService = catalogSearchService;
+            _productVendorService = productVendorService;
             _productUrlHelper = productUrlHelper;
             _seoSettings = seoSettings;
             _mediaSettings = mediaSettings;
@@ -259,6 +262,7 @@ namespace SmartStore.Admin.Controllers
             p.TaxCategoryId = m.TaxCategoryId ?? 0;
             p.CustomsTariffNumber = m.CustomsTariffNumber;
             p.CountryOfOriginId = m.CountryOfOriginId == 0 ? null : m.CountryOfOriginId;
+            p.ProductVendorId = m.ProductVendorId == 0 ?null:m.ProductVendorId;
 
             p.AvailableEndDateTimeUtc = p.AvailableEndDateTimeUtc.ToEndOfTheDay();
             p.SpecialPriceEndDateTimeUtc = p.SpecialPriceEndDateTimeUtc.ToEndOfTheDay();
@@ -709,6 +713,14 @@ namespace SmartStore.Admin.Controllers
                 })
                 .ToList();
 
+            model.ProductVendors = _productVendorService.GetAllProductVendors().Select(x=>new SelectListItem
+            {
+                Text = x.BusinessName,
+                 Value = x.Id.ToString(),
+                 Selected = product != null && x.Id == product.ProductVendorId
+            }).ToList();
+
+
             if (setPredefinedValues)
             {
                 model.MaximumCustomerEnteredPrice = 1000;
@@ -1140,7 +1152,7 @@ namespace SmartStore.Admin.Controllers
                 NotifyWarning(T("Products.Deleted", id));
                 return RedirectToAction("List");
             }
-
+            
             var model = product.ToModel();
             PrepareProductModel(model, product, false, false);
 

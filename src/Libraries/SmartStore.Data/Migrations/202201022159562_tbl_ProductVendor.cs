@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ProductVendorTable : DbMigration
+    public partial class tbl_ProductVendor : DbMigration
     {
         public override void Up()
         {
@@ -28,22 +28,16 @@
                 .Index(t => t.SubjectToAcl);
             
             AddColumn("dbo.Product", "ProductVendorId", c => c.Int());
-           // AddColumn("dbo.Product", "ProductVendor_Id", c => c.Int());
             CreateIndex("dbo.Product", "ProductVendorId");
-           // CreateIndex("dbo.Product", "ProductVendor_Id");
-           // AddForeignKey("dbo.Product", "ProductVendor_Id", "dbo.ProductVendor", "Id");
             AddForeignKey("dbo.Product", "ProductVendorId", "dbo.ProductVendor", "Id");
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Product", "ProductVendorId", "dbo.ProductVendor");
-           // DropForeignKey("dbo.Product", "ProductVendor_Id", "dbo.ProductVendor");
             DropIndex("dbo.ProductVendor", new[] { "SubjectToAcl" });
             DropIndex("dbo.ProductVendor", new[] { "Deleted" });
-            DropIndex("dbo.Product", new[] { "ProductVendor_Id" });
             DropIndex("dbo.Product", new[] { "ProductVendorId" });
-          //  DropColumn("dbo.Product", "ProductVendor_Id");
             DropColumn("dbo.Product", "ProductVendorId");
             DropTable("dbo.ProductVendor");
         }

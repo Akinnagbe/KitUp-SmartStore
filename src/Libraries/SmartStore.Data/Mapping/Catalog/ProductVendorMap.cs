@@ -35,7 +35,9 @@ namespace SmartStore.Data.Mapping.Catalog
              .HasMaxLength(11)
              .IsRequired();
 
-
+            this.HasMany(p=>p.Products)
+                .WithOptional(p=>p.ProductVendor)
+                .HasForeignKey(p=>p.ProductVendorId);
         }
     }
 }

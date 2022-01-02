@@ -542,9 +542,9 @@
     <Compile Include="Migrations\202101251149352_V411Resources.designer.cs">
       <DependentUpon>202101251149352_V411Resources.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202112310521132_ProductVendorTable.cs" />
-    <Compile Include="Migrations\202112310521132_ProductVendorTable.designer.cs">
-      <DependentUpon>202112310521132_ProductVendorTable.cs</DependentUpon>
+    <Compile Include="Migrations\202201022159562_tbl_ProductVendor.cs" />
+    <Compile Include="Migrations\202201022159562_tbl_ProductVendor.designer.cs">
+      <DependentUpon>202201022159562_tbl_ProductVendor.cs</DependentUpon>
     </Compile>
     <Compile Include="ObjectContextBase.SaveChanges.cs" />
     <Compile Include="Setup\Builder\ActivityLogTypeMigrator.cs" />
@@ -980,8 +980,8 @@
     <EmbeddedResource Include="Migrations\202101251149352_V411Resources.resx">
       <DependentUpon>202101251149352_V411Resources.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202112310521132_ProductVendorTable.resx">
-      <DependentUpon>202112310521132_ProductVendorTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202201022159562_tbl_ProductVendor.resx">
+      <DependentUpon>202201022159562_tbl_ProductVendor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sql\Indexes.sql" />
     <EmbeddedResource Include="Sql\StoredProcedures.sql" />

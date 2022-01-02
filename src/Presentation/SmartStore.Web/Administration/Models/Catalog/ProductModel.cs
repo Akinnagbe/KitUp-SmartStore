@@ -34,6 +34,7 @@ namespace SmartStore.Admin.Models.Catalog
             AvailableManageInventoryMethods = new List<SelectListItem>();
             AvailableCountries = new List<SelectListItem>();
             DownloadVersions = new List<DownloadVersion>();
+            ProductVendors = new List<SelectListItem>();
         }
 
         [SmartResourceDisplayName("Admin.Catalog.Products.Fields.ID")]
@@ -431,7 +432,10 @@ namespace SmartStore.Admin.Models.Catalog
 
         public bool IsSystemProduct { get; set; }
         public string SystemName { get; set; }
+        public IList<SelectListItem> ProductVendors { get; set; }
 
+        [SmartResourceDisplayName("Admin.Catalog.Products.Fields.ProductVendor")]
+        public int? ProductVendorId { get; set; }
         #region Nested classes
 
         public class AddProductSpecificationAttributeModel : ModelBase
@@ -795,6 +799,7 @@ namespace SmartStore.Admin.Models.Catalog
 
         [SmartResourceDisplayName("Admin.Catalog.Products.Fields.BundleTitleText")]
         public string BundleTitleText { get; set; }
+
     }
 
     public class DownloadVersion

@@ -7,13 +7,13 @@ namespace SmartStore.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ProductVendorTable : IMigrationMetadata
+    public sealed partial class tbl_ProductVendor : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ProductVendorTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(tbl_ProductVendor));
         
         string IMigrationMetadata.Id
         {
-            get { return "202112310521132_ProductVendorTable"; }
+            get { return "202201022159562_tbl_ProductVendor"; }
         }
         
         string IMigrationMetadata.Source
