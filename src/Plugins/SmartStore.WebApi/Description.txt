@@ -1,7 +1,7 @@
 ﻿FriendlyName: Smartstore Web API
 SystemName: Smartstore.WebApi
 Group: API
-Version: 4.1.1
+Version: 4.1.2
 MinAppVersion: 4.1.1
 Author: SmartStore AG
 DisplayOrder: 1

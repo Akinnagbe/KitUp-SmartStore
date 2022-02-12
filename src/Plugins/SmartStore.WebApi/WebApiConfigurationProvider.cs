@@ -77,6 +77,7 @@ namespace SmartStore.WebApi
             m.EntitySet<ProductVariantAttribute>("ProductVariantAttributes");
             m.EntitySet<ProductVariantAttributeValue>("ProductVariantAttributeValues");
             m.EntitySet<ProductVariantAttributeCombination>("ProductVariantAttributeCombinations");
+            m.EntitySet<ProductVendor>("ProductVendors");
             m.EntitySet<QuantityUnit>("QuantityUnits");
             m.EntitySet<RelatedProduct>("RelatedProducts");
             m.EntitySet<ReturnRequest>("ReturnRequests");

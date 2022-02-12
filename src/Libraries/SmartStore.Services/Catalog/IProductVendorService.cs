@@ -10,5 +10,11 @@ namespace SmartStore.Services.Catalog
     public interface IProductVendorService
     {
         IList<ProductVendor> GetAllProductVendors();
+
+        void InsertProductVendor(ProductVendor productVendor);
+
+        void UpdateProductVendor(ProductVendor productVendor);
+
+        void DeleteProductVendor(ProductVendor productVendor);
     }
 }

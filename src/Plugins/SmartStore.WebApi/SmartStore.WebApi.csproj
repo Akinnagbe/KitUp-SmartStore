@@ -262,6 +262,7 @@
     <Compile Include="Controllers\OData\ProductSpecificationAttributesController.cs" />
     <Compile Include="Controllers\OData\ProductVariantAttributeValuesController.cs" />
     <Compile Include="Controllers\OData\ProductVariantAttributesController.cs" />
+    <Compile Include="Controllers\OData\ProductVendorsController.cs" />
     <Compile Include="Controllers\OData\QuantityUnitsController.cs" />
     <Compile Include="Controllers\OData\PaymentMethodsController.cs" />
     <Compile Include="Controllers\OData\RewardPointsHistoryController.cs" />
