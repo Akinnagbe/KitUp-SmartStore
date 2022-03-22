@@ -2,8 +2,8 @@
 Description: Paystack payment integration
 SystemName: SmartStore.Paystack
 Group: Payment
-Version: 4.1.8
-MinAppVersion: 4.1.1
+Version: 4.2.0.0
+MinAppVersion: 4.2.0.0
 Author: Olamide James Akinnagbe
 DisplayOrder: 1
 FileName: SmartStore.Paystack.dll

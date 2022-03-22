@@ -16,6 +16,7 @@ namespace SmartStore.WebApi.Controllers.OData
     [IEEE754Compatible]
     public class OrderItemsController : WebApiEntityController<OrderItem, IOrderService>
     {
+      
         protected override IQueryable<OrderItem> GetEntitySet()
         {
             var query =

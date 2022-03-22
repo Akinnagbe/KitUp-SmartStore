@@ -11,7 +11,7 @@ namespace SmartStore.WebApi
         {
             routes.MapRoute("SmartStore.WebApi.Action",
                 "Plugins/SmartStore.WebApi/{action}",
-                new { controller = "WebApi" },
+                new { controller = "WebApi",action = "Configure" },
                 new[] { "SmartStore.WebApi.Controllers" }
             )
             .DataTokens["area"] = WebApiGlobal.PluginSystemName;

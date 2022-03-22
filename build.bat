@@ -9,9 +9,9 @@ for /f "usebackq tokens=1* delims=: " %%i in (`lib\vswhere\vswhere -latest -requ
 			set msbuild="!InstallDir!\MSBuild\15.0\Bin\MSBuild.exe"
 			goto build
 		)
-		if exist "!InstallDir!\MSBuild\Current\Bin\MSBuild.exe" (
+		if exist "C:\Program Files\Microsoft Visual Studio\2022\Community\Msbuild\Current\Bin\MSBuild.exe" (
 			echo "Using MSBuild from Visual Studio 2019"
-			set msbuild="!InstallDir!\MSBuild\Current\Bin\MSBuild.exe"
+			set msbuild="C:\Program Files\Microsoft Visual Studio\2022\Community\Msbuild\Current\Bin\MSBuild.exe"
 			goto build
 		)
 	)

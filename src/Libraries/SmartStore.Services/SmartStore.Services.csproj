@@ -447,6 +447,8 @@
     <Compile Include="Messages\CreateAttachmentsConsumer.cs" />
     <Compile Include="News\NewsMessageFactoryExtensions.cs" />
     <Compile Include="Orders\AddToCartContext.cs" />
+    <Compile Include="Orders\IOrderItemService.cs" />
+    <Compile Include="Orders\OrderItemService.cs" />
     <Compile Include="Orders\OrderMessageFactoryExtensions.cs" />
     <Compile Include="Cart\Rules\CartRuleContext.cs" />
     <Compile Include="Cart\Rules\CartRuleDescriptor.cs" />

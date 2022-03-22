@@ -103,6 +103,7 @@ namespace SmartStore.Admin.Controllers
         private readonly SeoSettings _seoSettings;
         private readonly MediaSettings _mediaSettings;
         private readonly SearchSettings _searchSettings;
+        private readonly IOrderItemService _orderItemService;
 
         #endregion
 
@@ -154,7 +155,8 @@ namespace SmartStore.Admin.Controllers
             ProductUrlHelper productUrlHelper,
             SeoSettings seoSettings,
             MediaSettings mediaSettings,
-            SearchSettings searchSettings)
+            SearchSettings searchSettings,
+            IOrderItemService orderItemService)
         {
             _productService = productService;
             _productTemplateService = productTemplateService;
@@ -202,6 +204,7 @@ namespace SmartStore.Admin.Controllers
             _seoSettings = seoSettings;
             _mediaSettings = mediaSettings;
             _searchSettings = searchSettings;
+            _orderItemService = orderItemService;
         }
 
         #endregion
@@ -262,12 +265,27 @@ namespace SmartStore.Admin.Controllers
             p.TaxCategoryId = m.TaxCategoryId ?? 0;
             p.CustomsTariffNumber = m.CustomsTariffNumber;
             p.CountryOfOriginId = m.CountryOfOriginId == 0 ? null : m.CountryOfOriginId;
-            p.ProductVendorId = m.ProductVendorId == 0 ?null:m.ProductVendorId;
+            p.ProductVendorId = m.ProductVendorId == 0 ? null : m.ProductVendorId;
 
             p.AvailableEndDateTimeUtc = p.AvailableEndDateTimeUtc.ToEndOfTheDay();
             p.SpecialPriceEndDateTimeUtc = p.SpecialPriceEndDateTimeUtc.ToEndOfTheDay();
+
+            UpdateOrderItems(p.Id, m.ProductVendorId ?? default(int?));
         }
 
+        protected void UpdateOrderItems(int productId, int? productVendorId)
+        {
+            var orderItems = _orderItemService.GetOrderItemsByProductId(productId);
+            if (orderItems != null && orderItems.Count > 0)
+            {
+                foreach (var item in orderItems)
+                {
+                    item.ProductVendorId = productVendorId;
+                }
+
+                _orderItemService.UpdateRange(orderItems);
+            }
+        }
         [NonAction]
         protected void UpdateProductDownloads(Product product, ProductModel model)
         {
@@ -713,11 +731,11 @@ namespace SmartStore.Admin.Controllers
                 })
                 .ToList();
 
-            model.ProductVendors = _productVendorService.GetAllProductVendors().Select(x=>new SelectListItem
+            model.ProductVendors = _productVendorService.GetAllProductVendors().Select(x => new SelectListItem
             {
                 Text = x.BusinessName,
-                 Value = x.Id.ToString(),
-                 Selected = product != null && x.Id == product.ProductVendorId
+                Value = x.Id.ToString(),
+                Selected = product != null && x.Id == product.ProductVendorId
             }).ToList();
 
 
@@ -1152,7 +1170,7 @@ namespace SmartStore.Admin.Controllers
                 NotifyWarning(T("Products.Deleted", id));
                 return RedirectToAction("List");
             }
-            
+
             var model = product.ToModel();
             PrepareProductModel(model, product, false, false);
 
@@ -3178,7 +3196,7 @@ namespace SmartStore.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken] 
+        [ValidateAntiForgeryToken]
         [Permission(Permissions.Catalog.Product.EditVariant)]
         public ActionResult ProductAttributeValueCreatePopup(string btnId, string formId, ProductModel.ProductVariantAttributeValueModel model)
         {
@@ -3735,12 +3753,14 @@ namespace SmartStore.Admin.Controllers
                 return HttpNotFound();
 
             _downloadService.DeleteDownload(download);
-            
-            return new JsonResult { 
-                Data = new {
+
+            return new JsonResult
+            {
+                Data = new
+                {
                     success = true,
                     Message = T("Admin.Common.TaskSuccessfullyProcessed").Text
-                } 
+                }
             };
         }
 

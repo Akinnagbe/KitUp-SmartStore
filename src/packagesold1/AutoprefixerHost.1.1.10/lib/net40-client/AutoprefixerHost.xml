@@ -1,0 +1,826 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoprefixerHost</name>
+    </assembly>
+    <members>
+        <member name="T:AutoprefixerHost.Autoprefixer">
+            <summary>
+            Autoprefixer
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer.AUTOPREFIXER_LIBRARY_FILE_NAME">
+            <summary>
+            Name of file, which contains a Autoprefixer library
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer.AUTOPREFIXER_HELPER_FILE_NAME">
+            <summary>
+            Name of file, which contains a Autoprefixer helper
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer.COUNTRY_STATISTICS_SERVICE_VARIABLE_NAME">
+            <summary>
+            Name of variable, which contains a country statistics service
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._defaultOptions">
+            <summary>
+            Default processing options
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._options">
+            <summary>
+            Processing options
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._serializedOptions">
+            <summary>
+            Processing options in JSON format
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._jsEngine">
+            <summary>
+            JS engine
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._initializationSynchronizer">
+            <summary>
+            Synchronizer of the Autoprefixer initialization
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._initialized">
+            <summary>
+            Flag indicating whether the Autoprefixer is initialized
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Autoprefixer._disposedFlag">
+            <summary>
+            Flag indicating whether the Autoprefixer is disposed
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Autoprefixer.Version">
+            <summary>
+            Gets a version of the Autoprefixer library
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.#ctor">
+            <summary>
+            Constructs an instance of the Autoprefixer
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.#ctor(AutoprefixerHost.ProcessingOptions)">
+            <summary>
+            Constructs an instance of the Autoprefixer
+            </summary>
+            <param name="options">Processing options</param>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.#ctor(System.Func{JavaScriptEngineSwitcher.Core.IJsEngine})">
+            <summary>
+            Constructs an instance of the Autoprefixer
+            </summary>
+            <param name="createJsEngineInstance">Delegate that creates an instance of JS engine</param>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.#ctor(System.Func{JavaScriptEngineSwitcher.Core.IJsEngine},AutoprefixerHost.ProcessingOptions)">
+            <summary>
+            Constructs an instance of the Autoprefixer
+            </summary>
+            <param name="createJsEngineInstance">Delegate that creates an instance of JS engine</param>
+            <param name="options">Processing options</param>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.#ctor(JavaScriptEngineSwitcher.Core.IJsEngineFactory)">
+            <summary>
+            Constructs an instance of the Autoprefixer
+            </summary>
+            <param name="jsEngineFactory">JS engine factory</param>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.#ctor(JavaScriptEngineSwitcher.Core.IJsEngineFactory,AutoprefixerHost.ProcessingOptions)">
+            <summary>
+            Constructs an instance of the Autoprefixer
+            </summary>
+            <param name="jsEngineFactory">JS engine factory</param>
+            <param name="options">Processing options</param>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.Initialize">
+            <summary>
+            Initializes a Autoprefixer
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.Process(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Actualizes a vendor prefixes in CSS code by using Andrey Sitnik's Autoprefixer
+            </summary>
+            <param name="content">CSS code</param>
+            <param name="inputPath">Path to input file</param>
+            <param name="outputPath">Path to output file</param>
+            <param name="sourceMapPath">Path to source map file</param>
+            <param name="inputSourceMapContent">Content of an input source map from an previous
+            processing step (for example, Sass compilation)</param>
+            <returns>Processing result</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.SerializeProcessingOptions(AutoprefixerHost.ProcessingOptions)">
+            <summary>
+            Serializes a processing options to JSON format
+            </summary>
+            <param name="options">Processing options</param>
+            <returns>Serialized processing options in JSON format</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.ConvertFlexboxModeEnumValueToJson(AutoprefixerHost.FlexboxMode)">
+            <summary>
+            Converts a flexbox mode enum value to JSON
+            </summary>
+            <param name="mode">Flexbox mode enum value</param>
+            <returns>Flexbox mode in JSON format</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.ConvertGridModeEnumValueToJson(AutoprefixerHost.GridMode)">
+            <summary>
+            Converts a grid mode enum value to JSON
+            </summary>
+            <param name="mode">Grid mode enum value</param>
+            <returns>Grid mode in JSON format</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Autoprefixer.Dispose">
+            <summary>
+            Destroys object
+            </summary>
+        </member>
+        <member name="T:AutoprefixerHost.AutoprefixerException">
+            <summary>
+            The exception that is thrown during the work of the Autoprefixer
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.AutoprefixerException._description">
+            <summary>
+            Description of error
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.AutoprefixerException.Description">
+            <summary>
+            Gets or sets a description of error
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerException"/> class
+            with a specified error message
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerException"/> class
+            with a specified error message and a reference to the inner exception
+            that is the cause of this exception
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+            <param name="innerException">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerException"/> class with serialized data
+            </summary>
+            <param name="info">The object that holds the serialized data</param>
+            <param name="context">The contextual information about the source or destination</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with the data needed to serialize the target object
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> to populate with data</param>
+            <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext"/>) for this serialization</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerException.ToString">
+            <summary>
+            Returns a string that represents the current exception
+            </summary>
+            <returns>A string that represents the current exception</returns>
+        </member>
+        <member name="T:AutoprefixerHost.AutoprefixerLoadException">
+            <summary>
+            The exception that is thrown when a loading of the Autoprefixer is failed
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerLoadException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerLoadException"/> class
+            with a specified error message
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerLoadException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerLoadException"/> class
+            with a specified error message and a reference to the inner exception
+            that is the cause of this exception
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+            <param name="innerException">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerLoadException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerLoadException"/> class with serialized data
+            </summary>
+            <param name="info">The object that holds the serialized data</param>
+            <param name="context">The contextual information about the source or destination</param>
+        </member>
+        <member name="T:AutoprefixerHost.AutoprefixerProcessingException">
+            <summary>
+            The exception that is thrown during processing of CSS code by using the Autoprefixer
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.AutoprefixerProcessingException._type">
+            <summary>
+            Type of the script error
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.AutoprefixerProcessingException._file">
+            <summary>
+            Name of file, where the error occurred
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.AutoprefixerProcessingException._lineNumber">
+            <summary>
+            Line number
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.AutoprefixerProcessingException._columnNumber">
+            <summary>
+            Column number
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.AutoprefixerProcessingException._sourceFragment">
+            <summary>
+            Source fragment
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.AutoprefixerProcessingException.Type">
+            <summary>
+            Gets or sets a type of the error
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.AutoprefixerProcessingException.File">
+            <summary>
+            Gets or sets a name of file, where the error occurred
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.AutoprefixerProcessingException.LineNumber">
+            <summary>
+            Gets or sets a line number
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.AutoprefixerProcessingException.ColumnNumber">
+            <summary>
+            Gets or sets a column number
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.AutoprefixerProcessingException.SourceFragment">
+            <summary>
+            Gets or sets a source fragment
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerProcessingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerProcessingException"/> class
+            with a specified error message
+            </summary>
+            <param name="message">The message that describes the error</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerProcessingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerProcessingException"/> class
+            with a specified error message and a reference to the inner exception
+            that is the cause of this exception
+            </summary>
+            <param name="message">The error message that explains the reason for the exception</param>
+            <param name="innerException">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerProcessingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AutoprefixerHost.AutoprefixerProcessingException"/> class with serialized data
+            </summary>
+            <param name="info">The object that holds the serialized data</param>
+            <param name="context">The contextual information about the source or destination</param>
+        </member>
+        <member name="M:AutoprefixerHost.AutoprefixerProcessingException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with the data needed to serialize the target object
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> to populate with data</param>
+            <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext"/>) for this serialization</param>
+        </member>
+        <member name="T:AutoprefixerHost.CountryStatisticsService">
+            <summary>
+            Country statistics service
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.CountryStatisticsService.AUTOPREFIXER_COUNTRY_STATISTICS_DIRECTORY_NAME">
+            <summary>
+            Name of directory, which contains a Autoprefixer country statistics
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.CountryStatisticsService._countryCodes">
+            <summary>
+            Set of country codes for which there are statistics
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.CountryStatisticsService._instance">
+            <summary>
+            Instance of country statistics service
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.CountryStatisticsService.Instance">
+            <summary>
+            Gets a instance of country statistics service
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.CountryStatisticsService.#ctor">
+            <summary>
+            Constructs an instance of country statistics service
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.CountryStatisticsService.ContainsCountry(System.String)">
+            <summary>
+            Determines whether the statistics database contains the specified country
+            </summary>
+            <param name="countryCode">Country code</param>
+            <returns>true if the statistics database contains an country with the specified code;
+            otherwise, false</returns>
+        </member>
+        <member name="M:AutoprefixerHost.CountryStatisticsService.GetStatisticsForCountry(System.String)">
+            <summary>
+            Gets a statistics for country
+            </summary>
+            <param name="countryCode">Country code</param>
+            <returns>Statistics for country</returns>
+        </member>
+        <member name="T:AutoprefixerHost.Extensions.StringExtensions">
+            <summary>
+            Extensions for String
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Extensions.StringExtensions.TabsToSpaces(System.String,System.Int32)">
+            <summary>
+            Replaces a tabs by specified number of spaces
+            </summary>
+            <param name="source">String value</param>
+            <param name="tabSize">Number of spaces in tab</param>
+            <returns>Processed string value</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Extensions.StringExtensions.TryGetChar(System.String,System.Int32,System.Char@)">
+            <summary>
+            Gets a character at the specified index from the string.
+            A return value indicates whether the receiving succeeded.
+            </summary>
+            <param name="source">The source string</param>
+            <param name="index">The zero-based index of the character</param>
+            <param name="result">When this method returns, contains the character from the string,
+            if the receiving succeeded, or null character if the receiving failed.
+            The receiving fails if the index out of bounds.</param>
+            <returns>true if the character was received successfully; otherwise, false</returns>
+        </member>
+        <member name="T:AutoprefixerHost.FlexboxMode">
+            <summary>
+            Flexbox mode
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.FlexboxMode.All">
+            <summary>
+            Add prefixes for flexbox properties for all browsers
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.FlexboxMode.None">
+            <summary>
+            Prevent adding prefixes for flexbox properties
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.FlexboxMode.No2009">
+            <summary>
+            Add prefixes for flexbox properties only for final and IE 10 versions of specification
+            </summary>
+        </member>
+        <member name="T:AutoprefixerHost.GridMode">
+            <summary>
+            Grid mode
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.GridMode.None">
+            <summary>
+            Prevent Autoprefixer from outputting CSS Grid translations
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.GridMode.Autoplace">
+            <summary>
+            Enable Autoprefixer grid translations and include autoplacement support
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.GridMode.NoAutoplace">
+            <summary>
+            Enable Autoprefixer grid translations but exclude autoplacement support
+            </summary>
+        </member>
+        <member name="T:AutoprefixerHost.Helpers.AutoprefixerErrorHelpers">
+            <summary>
+            Autoprefixer error helpers
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Helpers.AutoprefixerErrorHelpers.GenerateAutoprefixerLoadErrorMessage(System.String,System.Boolean)">
+            <summary>
+            Generates a Autoprefixer load error message
+            </summary>
+            <param name="description">Description of error</param>
+            <param name="quoteDescription">Makes a quote from the description</param>
+            <returns>Autoprefixer load error message</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Helpers.AutoprefixerErrorHelpers.GenerateErrorDetails(AutoprefixerHost.AutoprefixerException,System.Boolean)">
+            <summary>
+            Generates a detailed error message
+            </summary>
+            <param name="autoprefixerException">Autoprefixer exception</param>
+            <param name="omitMessage">Flag for whether to omit message</param>
+            <returns>Detailed error message</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Helpers.AutoprefixerErrorHelpers.GenerateErrorDetails(AutoprefixerHost.AutoprefixerProcessingException,System.Boolean)">
+            <summary>
+            Generates a detailed error message
+            </summary>
+            <param name="autoprefixerProcessingException">Autoprefixer processing exception</param>
+            <param name="omitMessage">Flag for whether to omit message</param>
+            <returns>Detailed error message</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Helpers.AutoprefixerErrorHelpers.WriteCommonErrorDetails(System.Text.StringBuilder,AutoprefixerHost.AutoprefixerException,System.Boolean)">
+            <summary>
+            Writes a detailed error message to the buffer
+            </summary>
+            <param name="buffer">Instance of <see cref="T:System.Text.StringBuilder"/></param>
+            <param name="autoprefixerException">Autoprefixer exception</param>
+            <param name="omitMessage">Flag for whether to omit message</param>
+        </member>
+        <member name="M:AutoprefixerHost.Helpers.AutoprefixerErrorHelpers.WriteProcessingErrorDetails(System.Text.StringBuilder,AutoprefixerHost.AutoprefixerProcessingException)">
+            <summary>
+            Writes a detailed error message to the buffer
+            </summary>
+            <param name="buffer">Instance of <see cref="T:System.Text.StringBuilder"/></param>
+            <param name="autoprefixerProcessingException">Autoprefixer processing exception</param>
+        </member>
+        <member name="T:AutoprefixerHost.Helpers.ResourceHelpers">
+            <summary>
+            Resource helpers
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Helpers.ResourceHelpers.RESOURCES_NAMESPACE">
+            <summary>
+            Namespace for resources
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Helpers.ResourceHelpers.ResourcesNamespace">
+            <summary>
+            Gets a namespace for resources
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Helpers.ResourceHelpers.GetResourceName(System.String)">
+            <summary>
+            Gets a resource name
+            </summary>
+            <param name="fileName">File name</param>
+            <returns>Resource name</returns>
+        </member>
+        <member name="T:AutoprefixerHost.ProblemInfo">
+            <summary>
+            Information about the problem
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProblemInfo.Message">
+            <summary>
+            Gets or sets a message that describes the current problem
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProblemInfo.Description">
+            <summary>
+            Gets or sets a description of problem
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProblemInfo.File">
+            <summary>
+            Gets or sets a name of file, where the problem occurred
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProblemInfo.LineNumber">
+            <summary>
+            Gets or sets a line number
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProblemInfo.ColumnNumber">
+            <summary>
+            Gets or sets a column number
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProblemInfo.SourceFragment">
+            <summary>
+            Gets or sets a source fragment
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.ProblemInfo.#ctor">
+            <summary>
+            Constructs an instance of the problem information
+            </summary>
+        </member>
+        <member name="T:AutoprefixerHost.ProcessingOptions">
+            <summary>
+            Processing options
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Browsers">
+            <summary>
+            Gets or sets a list of queries for target browsers
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Cascade">
+            <summary>
+            Gets or sets a flag for whether to create nice visual cascade of prefixes
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Add">
+            <summary>
+            Gets or sets a flag for whether to add new prefixes
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Remove">
+            <summary>
+            Gets or sets a flag for whether to remove outdated prefixes
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Supports">
+            <summary>
+            Gets or sets a flag for whether to add prefixes for <code>@supports</code> parameters
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Flexbox">
+            <summary>
+            Gets or sets a mode that defines should Autoprefixer add prefixes for flexbox properties
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Grid">
+            <summary>
+            Gets or sets a mode that defines should Autoprefixer add IE 10-11 prefixes for Grid Layout properties
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.IgnoreUnknownVersions">
+            <summary>
+            Gets or sets a flag for whether to do not raise error on unknown browser version in
+            the <code>Browsers</code> property
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.Stats">
+            <summary>
+            Gets or sets a custom usage statistics in JSON format for <code>&gt; 10% in my stats</code> browsers
+            query
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.SourceMap">
+            <summary>
+            Gets or sets a flag for whether to enable source map generation
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.InlineSourceMap">
+            <summary>
+            Gets or sets a flag for whether to embed <code>sourceMappingUrl</code> as data uri
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.SourceMapIncludeContents">
+            <summary>
+            Gets or sets a flag for whether to include contents in maps
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingOptions.OmitSourceMapUrl">
+            <summary>
+            Gets or sets a flag for whether to disable <code>sourceMappingUrl</code> in css output
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.ProcessingOptions.#ctor">
+            <summary>
+            Constructs a instance of the CSS processing options
+            </summary>
+        </member>
+        <member name="T:AutoprefixerHost.ProcessingResult">
+            <summary>
+            Result of processing CSS code by using the Autoprefixer
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingResult.ProcessedContent">
+            <summary>
+            Gets a processed content
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingResult.SourceMap">
+            <summary>
+            Gets a source map
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.ProcessingResult.Warnings">
+            <summary>
+            Gets a list of the warnings
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.ProcessingResult.#ctor(System.String,System.String,System.Collections.Generic.IList{AutoprefixerHost.ProblemInfo})">
+            <summary>
+            Constructs an instance of the processing result
+            </summary>
+            <param name="processedContent">Processed content</param>
+            <param name="sourceMap">Source map</param>
+            <param name="warnings">List of the warnings</param>
+        </member>
+        <member name="T:AutoprefixerHost.Resources.Strings">
+            <summary>
+            A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ResourceManager">
+            <summary>
+            Returns a cached ResourceManager instance used by this class
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Culture">
+            <summary>
+            Overrides a current thread's CurrentUICulture property for all
+            resource lookups using this strongly typed resource class
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Common_EnumValueToCodeConversionFailed">
+            <summary>
+            Looks up a localized string similar to "Can't find string code that corresponding to the value '{0}' of enumeration type `{1}`."
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Common_SeeOriginalErrorMessage">
+            <summary>
+            Looks up a localized string similar to "See the original error message: &quot;{0}&quot;."
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_ColumnNumber">
+            <summary>
+            Looks up a localized string similar to "Column number"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_Description">
+            <summary>
+            Looks up a localized string similar to "Description"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_File">
+            <summary>
+            Looks up a localized string similar to "File"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_LineNumber">
+            <summary>
+            Looks up a localized string similar to "Line number"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_Message">
+            <summary>
+            Looks up a localized string similar to "Message"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_SourceFragment">
+            <summary>
+            Looks up a localized string similar to "Source fragment"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.ErrorDetails_Type">
+            <summary>
+            Looks up a localized string similar to "Type"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Processor_AutoprefixerNotLoaded">
+            <summary>
+            Looks up a localized string similar to "During loading of the Autoprefixer error has occurred."
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Processor_CountryStatisticsNotFound">
+            <summary>
+            Looks up a localized string similar to "Could not find the statistics for country code '{0}'."
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Processor_JsErrorDuringProcessing">
+            <summary>
+            Looks up a localized string similar to "During processing of CSS code by using the Autoprefixer a JavaScript error has occurred: {0}"
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Resources.Strings.Processor_StatsPropertyHasIncorrectFormat">
+            <summary>
+            Looks up a localized string similar to "The value of 'Stats' property has an incorrect format."
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Utilities.SourceCodeNavigator._nextLineBreakChars">
+            <summary>
+            Array of characters used to find the next line break
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceCodeNavigator.FindNextLineBreak(System.String,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Finds a next line break
+            </summary>
+            <param name="sourceCode">Source code</param>
+            <param name="startPosition">Position in the input string that defines the leftmost
+            position to be searched</param>
+            <param name="lineBreakPosition">Position of line break</param>
+            <param name="lineBreakLength">Length of line break</param>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceCodeNavigator.FindNextLineBreak(System.String,System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Finds a next line break
+            </summary>
+            <param name="sourceCode">Source code</param>
+            <param name="startPosition">Position in the input string that defines the leftmost
+            position to be searched</param>
+            <param name="length">Number of characters in the substring to include in the search</param>
+            <param name="lineBreakPosition">Position of line break</param>
+            <param name="lineBreakLength">Length of line break</param>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceCodeNavigator.GetSourceFragment(System.String,AutoprefixerHost.Utilities.SourceCodeNodeCoordinates,System.Byte,System.Int32)">
+            <summary>
+            Gets a source fragment
+            </summary>
+            <param name="sourceCode">Source code</param>
+            <param name="nodeCoordinates">Node coordinates</param>
+            <param name="tabSize">Number of spaces in the tab</param>
+            <param name="maxFragmentLength">Maximum length of the source fragment</param>
+            <returns>Source fragment</returns>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceCodeNavigator.CalculateCutPositions(System.String,System.Int32,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Calculates a cut positions
+            </summary>
+            <param name="line">Line content</param>
+            <param name="columnNumber">Column number</param>
+            <param name="maxFragmentLength">Maximum length of the source fragment</param>
+            <param name="fragmentStartPosition">Start position of source fragment</param>
+            <param name="fragmentLength">Length of source fragment</param>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceCodeNavigator.FormatSourceCodeLine(System.String,AutoprefixerHost.Utilities.SourceCodeNodeCoordinates,System.Int32,System.Int32,System.Int32,System.Byte)">
+            <summary>
+            Formats a line of source code
+            </summary>
+            <param name="line">Line content</param>
+            <param name="nodeCoordinates">Node coordinates</param>
+            <param name="lineNumberSize">Number of symbols in the line number caption</param>
+            <param name="fragmentStartPosition">Start position of source fragment</param>
+            <param name="fragmentLength">Length of source fragment</param>
+            <param name="tabSize">Number of spaces in the tab</param>
+            <returns>Formatted line</returns>
+        </member>
+        <member name="T:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates">
+            <summary>
+            Source code node coordinates
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates._lineNumber">
+            <summary>
+            Line number
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates._columnNumber">
+            <summary>
+            Column number
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates.LineNumber">
+            <summary>
+            Gets or sets a line number
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates.ColumnNumber">
+            <summary>
+            Gets or sets a column number
+            </summary>
+        </member>
+        <member name="F:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates.Empty">
+            <summary>
+            Represents a node coordinates that has line number and column number values set to zero.
+            </summary>
+        </member>
+        <member name="P:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates.IsEmpty">
+            <summary>
+            Gets a value indicating whether this node coordinates is empty
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceCodeNodeCoordinates.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructs an instance of source code node coordinates
+            </summary>
+            <param name="lineNumber">Line number</param>
+            <param name="columnNumber">Column number</param>
+        </member>
+        <member name="T:AutoprefixerHost.Utilities.SourceMapExtractor">
+            <summary>
+            Extractor of source maps
+            </summary>
+        </member>
+        <member name="M:AutoprefixerHost.Utilities.SourceMapExtractor.ExtractSourceMap(System.String)">
+            <summary>
+            Extracts a source map from CSS code with inline source map
+            </summary>
+            <param name="content">CSS code with inline source map</param>
+            <returns>Source map</returns>
+        </member>
+    </members>
+</doc>

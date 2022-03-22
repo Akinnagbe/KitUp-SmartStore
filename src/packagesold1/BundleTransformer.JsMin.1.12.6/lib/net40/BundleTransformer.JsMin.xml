@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BundleTransformer.JsMin</name>
+    </assembly>
+    <members>
+        <member name="T:BundleTransformer.JsMin.Minifiers.CrockfordJsMinifier">
+            <summary>
+            Minifier, which produces minifiction of JS code
+            by using C# port of Douglas Crockford's JSMin
+            </summary>
+        </member>
+        <member name="F:BundleTransformer.JsMin.Minifiers.CrockfordJsMinifier.MINIFIER_NAME">
+            <summary>
+            Name of minifier
+            </summary>
+        </member>
+        <member name="F:BundleTransformer.JsMin.Minifiers.CrockfordJsMinifier.CODE_TYPE">
+            <summary>
+            Name of code type
+            </summary>
+        </member>
+        <member name="M:BundleTransformer.JsMin.Minifiers.CrockfordJsMinifier.Minify(BundleTransformer.Core.Assets.IAsset)">
+            <summary>
+            Produces a code minifiction of JS asset by using C# port of
+            Douglas Crockford's JSMin
+            </summary>
+            <param name="asset">JS asset</param>
+            <returns>JS asset with minified text content</returns>
+        </member>
+        <member name="M:BundleTransformer.JsMin.Minifiers.CrockfordJsMinifier.Minify(System.Collections.Generic.IList{BundleTransformer.Core.Assets.IAsset})">
+            <summary>
+            Produces a code minifiction of JS assets by using C# port of
+            Douglas Crockford's JSMin
+            </summary>
+            <param name="assets">Set of JS assets</param>
+            <returns>Set of JS assets with minified text content</returns>
+        </member>
+    </members>
+</doc>

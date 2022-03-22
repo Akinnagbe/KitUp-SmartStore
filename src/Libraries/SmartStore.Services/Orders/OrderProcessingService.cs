@@ -1228,6 +1228,7 @@ namespace SmartStore.Services.Orders
                                     OrderItemGuid = Guid.NewGuid(),
                                     Order = order,
                                     ProductId = sc.Item.ProductId,
+                                    ProductVendorId = sc.Item.Product.ProductVendorId,
                                     UnitPriceInclTax = scUnitPriceInclTax,
                                     UnitPriceExclTax = scUnitPriceExclTax,
                                     PriceInclTax = scSubTotalInclTax,

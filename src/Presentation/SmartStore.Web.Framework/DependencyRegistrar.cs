@@ -231,6 +231,7 @@ namespace SmartStore.Web.Framework
             builder.RegisterType<CheckoutAttributeService>().As<ICheckoutAttributeService>().InstancePerRequest();
             builder.RegisterType<GiftCardService>().As<IGiftCardService>().InstancePerRequest();
             builder.RegisterType<OrderService>().As<IOrderService>().InstancePerRequest();
+            builder.RegisterType<OrderItemService>().As<IOrderItemService>().InstancePerRequest();
             builder.RegisterType<OrderReportService>().As<IOrderReportService>().InstancePerRequest();
             builder.RegisterType<OrderProcessingService>().As<IOrderProcessingService>().InstancePerRequest();
             builder.RegisterType<OrderTotalCalculationService>().As<IOrderTotalCalculationService>().InstancePerRequest();

@@ -32,6 +32,11 @@ namespace SmartStore.Core.Domain.Orders
         public int ProductId { get; set; }
 
         /// <summary>
+        /// Gets or sets the product vendor id
+        /// </summary>
+        [DataMember]
+        public int? ProductVendorId { get; set; }
+        /// <summary>
         /// Gets or sets the quantity
         /// </summary>
 		[DataMember]
