@@ -179,7 +179,7 @@ namespace SmartStore.Paystack
             {
                 var settings = _services.Settings.LoadSetting<PaystackSettings>(_services.StoreContext.CurrentStore.Id);
 
-                result = this.CalculateAdditionalFee(_orderTotalCalculationService, cart, settings.AdditionalFee, settings.AdditionalFeePercentage);
+                result = this.CalculateFee(_orderTotalCalculationService, cart, settings.AdditionalFee,settings.Fee);
             }
             catch (Exception ex)
             {

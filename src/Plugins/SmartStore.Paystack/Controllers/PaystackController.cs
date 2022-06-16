@@ -183,6 +183,27 @@ namespace SmartStore.Controllers
 
         }
 
+        [ValidateInput(false)]
+       // [AllowAnonymous]
+       [HttpPost]
+        public ActionResult WebHookCallBack(PaystackWebhook model)
+        {
+            try
+            {
+                var webhookString = JsonConvert.SerializeObject(model);
+                logger.Log(LogLevel.Information, null, webhookString, null);
+                var settings = _services.Settings.LoadSetting<PaystackSettings>(_services.StoreContext.CurrentStore.Id);
+
+                return new HttpStatusCodeResult(200);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(LogLevel.Error, ex, null, null);
+                return new HttpStatusCodeResult(500);
+            }
+           
+        }
+
         public ActionResult FailedPayment(string orderGuid, string status)
         {
 

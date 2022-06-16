@@ -198,6 +198,7 @@
     <Compile Include="Models\PaystackInitializeRequestModel.cs" />
     <Compile Include="Models\PaystackInitializeResponseModel.cs" />
     <Compile Include="Models\PaystackResponseModel.cs" />
+    <Compile Include="Models\PaystackWebhook.cs" />
     <Compile Include="Models\VerifyTransactionResponseModel.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

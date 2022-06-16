@@ -73,6 +73,58 @@ namespace SmartStore.Services.Payments
             return result;
         }
 
+        public static decimal CalculateTransactionFee(this IPaymentMethod paymentMethod,
+          IOrderTotalCalculationService orderTotalCalculationService,
+          IList<OrganizedShoppingCartItem> cart,
+          decimal additionalFee, 
+          bool usePercentage)
+        {
+            if (paymentMethod == null)
+                throw new ArgumentNullException("paymentMethod");
+
+            if (additionalFee == decimal.Zero)
+                return additionalFee;
+
+            var result = decimal.Zero;
+            if (usePercentage)
+            {
+                // Percentage
+                decimal? orderTotalWithoutPaymentFee = orderTotalCalculationService.GetShoppingCartTotal(cart, usePaymentMethodAdditionalFee: false);
+
+                result = (decimal)((((float)orderTotalWithoutPaymentFee) * ((float)additionalFee)) / 100f);
+
+                result = result > 2000 ? 2000 : result;
+            }
+            else
+            {
+                // Fixed value
+                result = additionalFee;
+            }
+            return result;
+        }
+        public static decimal CalculateFee(this IPaymentMethod paymentMethod,
+          IOrderTotalCalculationService orderTotalCalculationService,
+          IList<OrganizedShoppingCartItem> cart,
+          decimal additionalFee,
+          decimal fee)
+        {
+            if (paymentMethod == null)
+                throw new ArgumentNullException("paymentMethod");
+            // Percentage
+            decimal? orderTotalWithoutPaymentFee = orderTotalCalculationService.GetShoppingCartTotal(cart, usePaymentMethodAdditionalFee: false);
+
+            const decimal feeCap = 2000m;
+           // const decimal flatFee = 0m;//formerly 100
+            decimal finalFee = 0m;
+
+            decimal decimalFee = fee / 100;
+
+            var applicableFee = (decimalFee * orderTotalWithoutPaymentFee.Value) + additionalFee;
+            finalFee = applicableFee < feeCap ? applicableFee : feeCap;
+           
+
+            return decimal.Round(finalFee, 2);
+        }
         public static RouteInfo GetConfigurationRoute(this IPaymentMethod method)
         {
             Guard.NotNull(method, nameof(method));

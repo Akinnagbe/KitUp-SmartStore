@@ -44,6 +44,9 @@ namespace SmartStore.Paystack.Models
         [SmartResourceDisplayName("Plugins.Payments.Paystack.AdditionalFeePercentage")]
         public bool AdditionalFeePercentage { get; set; }
 
+        [SmartResourceDisplayName("Plugins.Payments.Paystack.Fee")]
+        [Required]
+        public decimal Fee { get; set; }
 
         //#region Sample properties
 
