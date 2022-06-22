@@ -1,0 +1,11 @@
+﻿FriendlyName: DellyManLogistics
+SystemName: SmartStore.DellyManLogistics
+Group: Shipping
+Version: 4.2.0
+MinAppVersion: 4.2.0
+Author:  Olamide James Akinnagbe
+DisplayOrder: 1
+FileName: SmartStore.DellyManLogistics.dll
+ResourceRootKey: Plugins.SmartStore.DellyManLogistics
+Description: DellyMan Logistics
+Url: https://dellyman.com/rest-api/

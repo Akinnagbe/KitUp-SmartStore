@@ -1,0 +1,63 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.DellyManLogistics" AppendRootKey="false">
+    <Value>DellyManLogistics</Value>
+  </LocaleResource>
+  <LocaleResource Name="Plugins.Description.SmartStore.DellyManLogistics" AppendRootKey="false">
+    <Value>Detailed description for DellyManLogistics</Value>
+  </LocaleResource>
+  
+  <LocaleResource Name="Plugins.SmartStore.DellyManLogistics" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="AdminInstruction">
+        <Value>
+          <![CDATA[
+            Enter your data below to configure this plugin.
+          ]]>
+        </Value>
+      </LocaleResource>
+      <LocaleResource Name="ApiKey">
+        <Value>API SECRET KEY</Value>
+      </LocaleResource>
+      <LocaleResource Name="ApiKey.Hint">
+        <Value>Get your API Secret Key from DellyMan Dashboard Settings</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="BaseUrl">
+        <Value>API BaseUrl</Value>
+      </LocaleResource>
+      <LocaleResource Name="BaseUrl.Hint">
+        <Value>DellyMan API Base Url e.g. https://dev.dellyman.com</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="CustomerCode">
+        <Value>Customer Code</Value>
+      </LocaleResource>
+      <LocaleResource Name="CustomerCode.Hint">
+        <Value>DellyMan CustomerCode</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="CustomerId">
+        <Value>Customer Id</Value>
+      </LocaleResource>
+      <LocaleResource Name="CustomerId.Hint">
+        <Value>DellyMan CustomerId</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="PickupRequestedTime">
+        <Value>Pickup Request Time</Value>
+      </LocaleResource>
+      <LocaleResource Name="PickupRequestedTime.Hint">
+        <Value>Pickup Requested Time e.g. 06 AM to 09 PM</Value>
+      </LocaleResource>
+
+
+      <LocaleResource Name="OrderTrackingUrl">
+        <Value>Order Tracking Url</Value>
+      </LocaleResource>
+      <LocaleResource Name="OrderTrackingUrl.Hint">
+        <Value>Order Tracking Url e.g. https://dev.dellyman.com/tracking</Value>
+      </LocaleResource>
+      
+    </Children>
+  </LocaleResource>
+</Language>

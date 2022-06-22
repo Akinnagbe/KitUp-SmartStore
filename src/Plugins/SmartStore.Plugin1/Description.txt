@@ -1,0 +1,10 @@
+﻿FriendlyName: Plugin1
+SystemName: SmartStore.Plugin1
+Group: Shipping
+Version: 4.1.0
+MinAppVersion: 4.1.0
+Author: Mide
+DisplayOrder: 1
+FileName: SmartStore.Plugin1.dll
+ResourceRootKey: Plugins.SmartStore.Plugin1
+Url: 
