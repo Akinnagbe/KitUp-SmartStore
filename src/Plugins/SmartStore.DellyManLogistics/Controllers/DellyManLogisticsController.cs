@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SmartStore.ComponentModel;
 using SmartStore.Core.Data;
+using SmartStore.Core.Domain.Directory;
 using SmartStore.Core.Domain.Orders;
 using SmartStore.Core.Domain.Shipping;
 using SmartStore.Core.Logging;
@@ -27,17 +28,23 @@ namespace SmartStore.Controllers
         private readonly IGenericAttributeService _genericAttributeService;
         private readonly IRepository<Shipment> _shipmentRepository;
         private readonly IRepository<Order> _orderRepository;
+        private readonly IRepository<Country> _countryRepository;
+        private readonly IRepository<StateProvince> _stateProvinceRepository;
 
         public DellyManLogisticsController(
             ICommonServices services,
             IRepository<Shipment> shipmentRepository,
             IRepository<Order> orderRepository,
-            IGenericAttributeService genericAttributeService)
+            IGenericAttributeService genericAttributeService,
+            IRepository<Country> countryRepository,
+            IRepository<StateProvince> stateProvinceRepository)
         {
             _services = services;
             _genericAttributeService = genericAttributeService;
             _shipmentRepository = shipmentRepository;
             _orderRepository = orderRepository;
+            _countryRepository = countryRepository;
+            _stateProvinceRepository = stateProvinceRepository;
         }
 
 
@@ -46,7 +53,15 @@ namespace SmartStore.Controllers
         [LoadSetting]
         public ActionResult Configure(DellyManLogisticsSettings settings)
         {
+
             var model = new ConfigurationModel();
+            var country = _countryRepository.Table.FirstOrDefault(n => n.Name == "Nigeria");
+            if (country != null)
+            {
+                model.AvailableStateProvincies = _stateProvinceRepository.Table.Where(s => s.CountryId == country.Id).Select(ss => new SelectListItem() { Value = ss.Name, Text = ss.Name }).ToList();
+
+            }
+
             MiniMapper.Map(settings, model);
 
             return View(model);

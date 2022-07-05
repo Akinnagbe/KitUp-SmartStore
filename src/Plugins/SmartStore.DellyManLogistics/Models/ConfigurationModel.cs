@@ -9,7 +9,11 @@ namespace SmartStore.DellyManLogistics.Models
 {
     public class ConfigurationModel : ModelBase
     {
-
+        public ConfigurationModel()
+        {
+            AvailableCities = new List<SelectListItem>();
+            AvailableStateProvincies = new List<SelectListItem>();
+        }
 
         [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.ApiKey")]
         // [AllowHtml]
@@ -37,6 +41,38 @@ namespace SmartStore.DellyManLogistics.Models
         [Required]
         [Display(Name = "Order Tracking Url")]
         public string OrderTrackingUrl { get; set; }
+
+        //[SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.CompanyId")]       
+        //public string CompanyId { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultDeliveryFee")]
+        [Required]
+        public decimal DefaultDeliveryFee { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultPickUpContactName")]
+        [Required]
+        public string DefaultPickUpContactName { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultPickUpContactNumber")]
+        [Required]
+        public string DefaultPickUpContactNumber { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultPickUpGoogleAddress")]
+        [Required]
+        public string DefaultPickUpGoogleAddress { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultPickUpCity")]
+        [Required]
+        public string DefaultPickUpCity { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultPickUpState")]
+        [Required]
+        public string DefaultPickUpState { get; set; }
+
+        public List<SelectListItem> AvailableCities { get; set; }
+
+        [SmartResourceDisplayName("Plugins.SmartStore.DellyManLogistics.DefaultPickUpState")]
+        public List<SelectListItem> AvailableStateProvincies { get; set; }
     }
 
 

@@ -54,6 +54,7 @@ using SmartStore.Services.Customers.Importer;
 using SmartStore.Services.DataExchange;
 using SmartStore.Services.DataExchange.Export;
 using SmartStore.Services.DataExchange.Import;
+using SmartStore.Services.DellyMan;
 using SmartStore.Services.Directory;
 using SmartStore.Services.Discounts;
 using SmartStore.Services.Events;
@@ -276,6 +277,7 @@ namespace SmartStore.Web.Framework
             builder.RegisterType<OpenAuthenticationService>().As<IOpenAuthenticationService>().InstancePerRequest();
 
             builder.RegisterType<CommonServices>().As<ICommonServices>().InstancePerRequest();
+            builder.RegisterType<DellyManService>().As<IDellyManService>().InstancePerRequest();
         }
 
         protected override void AttachToComponentRegistration(IComponentRegistryBuilder componentRegistry, IComponentRegistration registration)

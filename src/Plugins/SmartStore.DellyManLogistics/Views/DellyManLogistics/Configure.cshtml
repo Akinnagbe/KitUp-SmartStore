@@ -19,67 +19,143 @@
 
 @using (Html.BeginForm())
 {
-    <div class="adminContent">
-        <div class="adminRow">
-            <div class="adminTitle">
-                @Html.SmartLabelFor(model => model.ApiKey)
-            </div>
-            <div class="adminData">
-                @Html.SettingEditorFor(model => model.ApiKey)
-                @Html.ValidationMessageFor(model => model.ApiKey)
-            </div>
+<div class="adminContent">
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.ApiKey)
         </div>
-
-
-        <div class="adminRow">
-            <div class="adminTitle">
-                @Html.SmartLabelFor(model => model.BaseUrl)
-            </div>
-            <div class="adminData">
-                @Html.SettingEditorFor(model => model.BaseUrl)
-                @Html.ValidationMessageFor(model => model.BaseUrl)
-            </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.ApiKey)
+            @Html.ValidationMessageFor(model => model.ApiKey)
         </div>
-
-        <div class="adminRow">
-            <div class="adminTitle">
-                @Html.SmartLabelFor(model => model.CustomerCode)
-            </div>
-            <div class="adminData">
-                @Html.SettingEditorFor(model => model.CustomerCode)
-                @Html.ValidationMessageFor(model => model.CustomerCode)
-            </div>
-        </div>
-
-        <div class="adminRow">
-            <div class="adminTitle">
-                @Html.SmartLabelFor(model => model.CustomerId)
-            </div>
-            <div class="adminData">
-                @Html.SettingEditorFor(model => model.CustomerId)
-                @Html.ValidationMessageFor(model => model.CustomerId)
-            </div>
-        </div>
-
-        <div class="adminRow">
-            <div class="adminTitle">
-                @Html.SmartLabelFor(model => model.PickupRequestedTime)
-            </div>
-            <div class="adminData">
-                @Html.SettingEditorFor(model => model.PickupRequestedTime)
-                @Html.ValidationMessageFor(model => model.PickupRequestedTime)
-            </div>
-        </div>
-
-        <div class="adminRow">
-            <div class="adminTitle">
-                @Html.SmartLabelFor(model => model.OrderTrackingUrl)
-            </div>
-            <div class="adminData">
-                @Html.SettingEditorFor(model => model.OrderTrackingUrl)
-                @Html.ValidationMessageFor(model => model.OrderTrackingUrl)
-            </div>
-        </div>
-
     </div>
+
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.BaseUrl)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.BaseUrl)
+            @Html.ValidationMessageFor(model => model.BaseUrl)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.CustomerCode)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.CustomerCode)
+            @Html.ValidationMessageFor(model => model.CustomerCode)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.CustomerId)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.CustomerId)
+            @Html.ValidationMessageFor(model => model.CustomerId)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.PickupRequestedTime)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.PickupRequestedTime)
+            @Html.ValidationMessageFor(model => model.PickupRequestedTime)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.OrderTrackingUrl)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.OrderTrackingUrl)
+            @Html.ValidationMessageFor(model => model.OrderTrackingUrl)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultDeliveryFee)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultDeliveryFee)
+            @Html.ValidationMessageFor(model => model.DefaultDeliveryFee)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPickUpContactName)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultPickUpContactName)
+            @Html.ValidationMessageFor(model => model.DefaultPickUpContactName)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPickUpContactNumber)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultPickUpContactNumber)
+            @Html.ValidationMessageFor(model => model.DefaultPickUpContactNumber)
+        </div>
+    </div>
+
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPickUpGoogleAddress)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultPickUpGoogleAddress)
+            @Html.ValidationMessageFor(model => model.DefaultPickUpGoogleAddress)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPickUpState)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultPickUpState)
+            @Html.ValidationMessageFor(model => model.DefaultPickUpState)
+        </div>
+    </div> 
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPickUpCity)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultPickUpCity)
+            @Html.ValidationMessageFor(model => model.DefaultPickUpCity)
+        </div>
+    </div>
+
+    @*<div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPickUpState)
+        </div>
+        <div class="adminData">
+            @Html.DropDownListFor(model => model.DefaultPickUpCity,Model.AvailableStateProvincies,
+           new {
+               @class="form-control",
+                data_states_ajax_url = Url.Action("GetStatesByCountryId", "Country")
+           })
+            @Html.ValidationMessageFor(model => model.DefaultPickUpState)
+        </div>
+    </div>*@
+
+
+</div>
 }

@@ -270,6 +270,7 @@
       <Link>Properties\AssemblyVersionInfo.cs</Link>
     </Compile>
     -->
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Events\EvenConsumer.cs" />
     <Compile Include="Models\DellyManBaseResponseModel.cs" />
     <Compile Include="Models\DellyManBookOrderModel.cs" />

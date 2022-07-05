@@ -12,7 +12,7 @@ namespace SmartStore.Paystack.Models
     public class ConfigurationModel : ModelBase
     {
         [Required]
-        [Url]
+       // [Url]
         public string BaseUrl { get; set; }
 
         [Required]

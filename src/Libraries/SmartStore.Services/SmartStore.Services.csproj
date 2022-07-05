@@ -329,6 +329,8 @@
     <Compile Include="DataExchange\Export\ExportFeaturesAttribute.cs" />
     <Compile Include="DataExchange\Export\ExportDataSegmenter.cs" />
     <Compile Include="DataExchange\Export\DataExportTask.cs" />
+    <Compile Include="DellyMan\DellyManService.cs" />
+    <Compile Include="DellyMan\IDellyManService.cs" />
     <Compile Include="Directory\GeoCountryLookup.cs" />
     <Compile Include="Directory\QuantityUnitService.cs" />
     <Compile Include="Directory\IQuantityUnitService.cs" />

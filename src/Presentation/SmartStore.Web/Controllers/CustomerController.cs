@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using SmartStore.ComponentModel;
@@ -19,6 +21,7 @@ using SmartStore.Services.Catalog;
 using SmartStore.Services.Catalog.Extensions;
 using SmartStore.Services.Common;
 using SmartStore.Services.Customers;
+using SmartStore.Services.DellyMan;
 using SmartStore.Services.Directory;
 using SmartStore.Services.Forums;
 using SmartStore.Services.Helpers;
@@ -84,6 +87,7 @@ namespace SmartStore.Web.Controllers
         private readonly CaptchaSettings _captchaSettings;
         private readonly ExternalAuthenticationSettings _externalAuthenticationSettings;
         private readonly PluginMediator _pluginMediator;
+        private readonly IDellyManService _dellyManService;
 
         #endregion
 
@@ -129,7 +133,8 @@ namespace SmartStore.Web.Controllers
             LocalizationSettings localizationSettings,
             CaptchaSettings captchaSettings,
             ExternalAuthenticationSettings externalAuthenticationSettings,
-            PluginMediator pluginMediator)
+            PluginMediator pluginMediator,
+            IDellyManService dellyManService)
         {
             _authenticationService = authenticationService;
             _dateTimeHelper = dateTimeHelper;
@@ -171,6 +176,7 @@ namespace SmartStore.Web.Controllers
             _captchaSettings = captchaSettings;
             _externalAuthenticationSettings = externalAuthenticationSettings;
             _pluginMediator = pluginMediator;
+            _dellyManService = dellyManService;
         }
 
         #endregion
@@ -533,7 +539,7 @@ namespace SmartStore.Web.Controllers
             model.AllowCustomersToSetTimeZone = _dateTimeSettings.AllowCustomersToSetTimeZone;
             model.DisplayVatNumber = _taxSettings.EuVatEnabled;
             model.VatRequired = _taxSettings.VatRequired;
-            
+
             MiniMapper.Map(_customerSettings, model);
 
             model.UsernamesEnabled = _customerSettings.CustomerLoginType != CustomerLoginType.Email;
@@ -1173,7 +1179,7 @@ namespace SmartStore.Web.Controllers
         }
 
         [RewriteUrl(SslRequirement.Yes)]
-        public ActionResult AddressAdd()
+        public async Task<ActionResult> AddressAdd()
         {
             if (!IsCurrentUserRegistered())
                 return new HttpUnauthorizedResult();
@@ -1181,20 +1187,26 @@ namespace SmartStore.Web.Controllers
             var customer = _workContext.CurrentCustomer;
 
             var model = new CustomerAddressEditModel();
+
             model.Address.PrepareModel(null, false, _addressSettings, _localizationService, _stateProvinceService, () => _countryService.GetAllCountries());
             model.Address.Email = customer?.Email;
-
+            await ConfigureStateAndCityAsync(model);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult AddressAdd(CustomerAddressEditModel model)
+        public async Task<ActionResult> AddressAdd(CustomerAddressEditModel model)
         {
             if (!IsCurrentUserRegistered())
                 return new HttpUnauthorizedResult();
 
             var customer = _workContext.CurrentCustomer;
 
+            await ConfigureStateAndCityAsync(model);
+            model.Address.City = model.Address.AvailableCities.FirstOrDefault(c => c.Value == model.Address.CityId.ToString())?.Text;
+
+            if (ModelState.ContainsKey("Address.City"))
+                ModelState["Address.City"].Errors.Clear();
 
             if (ModelState.IsValid)
             {
@@ -1219,7 +1231,7 @@ namespace SmartStore.Web.Controllers
         }
 
         [RewriteUrl(SslRequirement.Yes)]
-        public ActionResult AddressEdit(int id)
+        public async Task<ActionResult> AddressEdit(int id)
         {
             if (id < 1)
                 return HttpNotFound();
@@ -1236,12 +1248,12 @@ namespace SmartStore.Web.Controllers
 
             var model = new CustomerAddressEditModel();
             model.Address.PrepareModel(address, false, _addressSettings, _localizationService, _stateProvinceService, () => _countryService.GetAllCountries());
-
+            await ConfigureStateAndCityAsync(model);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult AddressEdit(CustomerAddressEditModel model, int id)
+        public async Task<ActionResult> AddressEdit(CustomerAddressEditModel model, int id)
         {
             if (!IsCurrentUserRegistered())
                 return new HttpUnauthorizedResult();
@@ -1252,6 +1264,13 @@ namespace SmartStore.Web.Controllers
             if (address == null)
                 //address is not found
                 return RedirectToAction("Addresses");
+            await ConfigureStateAndCityAsync(model);
+            model.Address.City = model.Address.AvailableCities.FirstOrDefault(c => c.Value == model.Address.CityId.ToString())?.Text;
+            
+            if (ModelState.ContainsKey("Address.City"))
+                ModelState["Address.City"].Errors.Clear();
+
+            
 
             if (ModelState.IsValid)
             {
@@ -1262,9 +1281,29 @@ namespace SmartStore.Web.Controllers
 
             // If we got this far, something failed, redisplay form
             model.Address.PrepareModel(address, true, _addressSettings, _localizationService, _stateProvinceService, () => _countryService.GetAllCountries());
+
             return View(model);
         }
 
+        async Task ConfigureStateAndCityAsync(CustomerAddressEditModel model)
+        {
+            var states = await _dellyManService.GetStatesAsync();
+            if (string.IsNullOrEmpty(model.Address.StateProvinceName))
+            {
+                var stateProvinces = _stateProvinceService.GetStateProvincesByCountryId(model.Address.CountryId.GetValueOrDefault());
+                model.Address.StateProvinceName = stateProvinces.FirstOrDefault(s => s.Id == model.Address.StateProvinceId.GetValueOrDefault())?.Name;
+            }
+            var selectedState = states.FirstOrDefault(s => s.Name == model.Address.StateProvinceName);
+            if (selectedState != null)
+            {
+                var cities = await _dellyManService.GetCitiesAsync(selectedState.StateID);
+                model.Address.AvailableCities = cities.Select(c => new SelectListItem() { Value = c.CityID, Text = c.Name, Selected = model.Address.City == c.Name }).ToList();
+            }
+            else
+            {
+                model.Address.AvailableCities = new List<SelectListItem>();
+            }
+        }
         #endregion
 
         #region Orders

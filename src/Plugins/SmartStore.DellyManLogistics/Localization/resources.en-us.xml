@@ -57,6 +57,57 @@
       <LocaleResource Name="OrderTrackingUrl.Hint">
         <Value>Order Tracking Url e.g. https://dev.dellyman.com/tracking</Value>
       </LocaleResource>
+
+      <LocaleResource Name="CompanyId">
+        <Value>CompanyId</Value>
+      </LocaleResource>
+      <LocaleResource Name="CompanyId.Hint">
+        <Value>CompanyId</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="DefaultDeliveryFee">
+        <Value>CompanyId</Value>
+      </LocaleResource>
+      <LocaleResource Name="DefaultDeliveryFee.Hint">
+        <Value>Default Delivery Fee if GetQuote does not return any value</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="DefaultPickUpContactName">
+        <Value>Default PickUp Contact Name</Value>
+      </LocaleResource>
+      <LocaleResource Name="DefaultPickUpContactName.Hint">
+        <Value>Contact Person Name</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="DefaultPickUpContactNumber">
+        <Value>Default PickUp Contact Number</Value>
+      </LocaleResource>
+      <LocaleResource Name="DefaultPickUpContactNumber.Hint">
+        <Value>Contact Person Phone Number</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="DefaultPickUpGoogleAddress">
+        <Value>Default PickUp Google Address</Value>
+      </LocaleResource>
+      <LocaleResource Name="DefaultPickUpGoogleAddress.Hint">
+        <Value>Address as found on Google</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="DefaultPickUpCity">
+        <Value>Default PickUp City</Value>
+      </LocaleResource>
+      <LocaleResource Name="DefaultPickUpCity.Hint">
+        <Value>Get City from DellyMan API</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="DefaultPickUpState">
+        <Value>Default PickUp State</Value>
+      </LocaleResource>
+      <LocaleResource Name="DefaultPickUpState.Hint">
+        <Value>Get State from DellyMan API</Value>
+      </LocaleResource>
+      
+      
       
     </Children>
   </LocaleResource>

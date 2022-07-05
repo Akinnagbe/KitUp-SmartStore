@@ -19,6 +19,8 @@ namespace SmartStore.Web.Models.Common
             AvailableCountries = new List<SelectListItem>();
             AvailableStates = new List<SelectListItem>();
             AvailableSalutations = new List<SelectListItem>();
+            AvailableCities = new List<SelectListItem>();
+
         }
 
         [SmartResourceDisplayName("Address.Fields.Salutation")]
@@ -68,6 +70,8 @@ namespace SmartStore.Web.Models.Common
 
         [SmartResourceDisplayName("Address.Fields.City")]
         public string City { get; set; }
+        [SmartResourceDisplayName("Address.Fields.City")]
+        public int? CityId { get; set; }
         public bool CityEnabled { get; set; }
         public bool CityRequired { get; set; }
 
@@ -101,6 +105,7 @@ namespace SmartStore.Web.Models.Common
         public IList<SelectListItem> AvailableCountries { get; set; }
         public IList<SelectListItem> AvailableStates { get; set; }
         public IList<SelectListItem> AvailableSalutations { get; set; }
+        public IList<SelectListItem> AvailableCities { get; set; }
 
         public string FormattedAddress { get; set; }
 

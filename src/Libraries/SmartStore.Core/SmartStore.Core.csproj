@@ -245,6 +245,8 @@
     <Compile Include="Domain\DataExchange\DataExchangeSettings.cs" />
     <Compile Include="Domain\DataExchange\ExportDeployment.cs" />
     <Compile Include="Domain\DataExchange\ExportProjection.cs" />
+    <Compile Include="Domain\DellyMan\City.cs" />
+    <Compile Include="Domain\DellyMan\State.cs" />
     <Compile Include="Domain\Directory\CurrencyRoundingRule.cs" />
     <Compile Include="Domain\Directory\QuantityUnit.cs" />
     <Compile Include="Domain\DataExchange\ExportEnums.cs" />

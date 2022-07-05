@@ -14,19 +14,6 @@ namespace SmartStore.Paystack.Settings
         public bool SupportsRefund { get; set; }
 
         public string CallBackUrl { get; set; }
-        //public string MyFirstSetting { get; set; }
-
-
-        //public int PictureId { get; set; }
-        //public string Color { get; set; }
-        //public string Text { get; set; }
-
-
-
-
-        //public bool UseSandbox { get; set; }
-        //public string AccountId { get; set; }
-        //public string AccountPassword { get; set; }
         public decimal AdditionalFee { get; set; }
         public bool AdditionalFeePercentage { get; set; }
         public decimal Fee { get; set; }

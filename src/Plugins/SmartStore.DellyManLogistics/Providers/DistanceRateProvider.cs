@@ -23,7 +23,7 @@ using System.Web.Routing;
 namespace SmartStore.DellyManLogistics.Providers
 {
     [SystemName("Shipping.DellyManDistanceRate")]
-    [FriendlyName("Distance Rate Shipping",Description = "Distance Rate Shipping")]
+    [FriendlyName("Distance Rate Shipping", Description = "Distance Rate Shipping")]
     [DisplayOrder(0)]
     public class DistanceRateProvider : IShippingRateComputationMethod, IConfigurable
     {
@@ -80,7 +80,7 @@ namespace SmartStore.DellyManLogistics.Providers
 
             var shippingMethod = this._shippingService.GetShippingMethodById(4);
 
-           // var cartAmount = getShippingOptionRequest.Items.Sum()
+            // var cartAmount = getShippingOptionRequest.Items.Sum()
 
 
             var shippingOption = new ShippingOption();
@@ -102,7 +102,7 @@ namespace SmartStore.DellyManLogistics.Providers
             {
                 httpClient.BaseAddress = new Uri(settings.BaseUrl);
                 httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", settings.ApiKey);
-              
+
                 httpClient.DefaultRequestHeaders
                       .Accept
                       .Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -118,10 +118,10 @@ namespace SmartStore.DellyManLogistics.Providers
                     IsProductOrder = 0,
                     PackageWeight = new List<int>(),
                     PaymentMode = "pickup",
-                    PickupAddress = "Shoprite Sangotedo Cardinal Anthony Olubunmi Okogie Road, Sangotedo, Nigeria",
+                    PickupAddress = settings.DefaultPickUpGoogleAddress,
                     PickupRequestedDate = DateTime.Now.ToString("dd/MM/yyyy"),
                     PickupRequestedTime = settings.PickupRequestedTime,
-                    ProductAmount = new List<decimal> {  },
+                    ProductAmount = new List<decimal> { },
                     VehicleID = 1
 
                 };
@@ -137,9 +137,26 @@ namespace SmartStore.DellyManLogistics.Providers
 
                 var response = JsonConvert.DeserializeObject<DellyManBaseResponseModel<List<DellyManCompanyModel>>>(content);
                 if (response.ResponseCode == 100 && response.ResponseMessage.Equals("Success", StringComparison.InvariantCultureIgnoreCase))
-                    return response.Data.FirstOrDefault().TotalPrice;
+                {
+                    if (response.Data != null && response.Data.Count > 0)
+                    {
+                        var company = response.Data.FirstOrDefault();
+                        if (string.IsNullOrEmpty(settings.CompanyId) || company.CompanyID.ToString() != settings.CompanyId)
+                        {
+                            settings.CompanyId = company.CompanyID.ToString();
+                            _services.Settings.SaveSetting<DellyManLogisticsSettings>(settings, _services.StoreContext.CurrentStore.Id);
+                        }
+
+                        return company.TotalPrice;
+                    }
+
+                    return settings.DefaultDeliveryFee;
+                }
                 else
-                    throw new Exception("An error occurred while calculating delivery fee");
+                {
+                    return settings.DefaultDeliveryFee;
+                }
+
 
             }
 

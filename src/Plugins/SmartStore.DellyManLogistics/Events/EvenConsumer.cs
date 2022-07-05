@@ -110,7 +110,7 @@ namespace SmartStore.DellyManLogistics.Events
 
                     var bookOrder = new DellyManBookOrderModel
                     {
-                        CompanyID = 643,
+                        CompanyID = int.Parse(settings.CompanyId),
                         CustomerID = int.Parse(settings.CustomerId),
                         DeliveryRequestedDate = DateTime.Now.ToString("dd/MM/yyyy"),
                         DeliveryRequestedTime = DateTime.Now.ToString("dd/MM/yyyy"),
@@ -119,19 +119,19 @@ namespace SmartStore.DellyManLogistics.Events
                         {
                             DeliveryCity = eventMessage.Order.Customer.ShippingAddress.City,
                             DeliveryContactName = eventMessage.Order.Customer.FullName,
-                            DeliveryContactNumber = eventMessage.Order.Customer.CustomerNumber ?? "08038541905",
+                            DeliveryContactNumber = eventMessage.Order.ShippingAddress.PhoneNumber ,
                             DeliveryGooglePlaceAddress = eventMessage.Order.Customer.ShippingAddress.Address1,
                             DeliveryLandmark = "",
                             DeliveryState = eventMessage.Order.Customer.ShippingAddress.StateProvince.Name,
                             PackageDescription = item.Product.Name,
-                            PickUpCity = "Ikeja",
-                            PickUpState = "Lagos"
+                            PickUpCity =settings.DefaultPickUpCity,
+                            PickUpState = settings.DefaultPickUpState
 
                         }).ToList(),
                         PaymentMode = "pickup",
-                        PickUpContactName = "Olamide",
-                        PickUpContactNumber = "07033045173",
-                        PickUpGooglePlaceAddress = "Shoprite Sangotedo Cardinal Anthony Olubunmi Okogie Road, Sangotedo, Nigeria",
+                        PickUpContactName = settings.DefaultPickUpContactName,
+                        PickUpContactNumber =settings.DefaultPickUpContactNumber,
+                        PickUpGooglePlaceAddress = settings.DefaultPickUpGoogleAddress,
                         PickUpLandmark = "",
                         PickUpRequestedDate = DateTime.Now.ToString("dd/MM/yyyy"),
                         PickUpRequestedTime = settings.PickupRequestedTime,

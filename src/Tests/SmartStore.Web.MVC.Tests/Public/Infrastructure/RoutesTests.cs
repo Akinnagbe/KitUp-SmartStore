@@ -110,8 +110,8 @@ namespace SmartStore.Web.MVC.Tests.Public.Infrastructure
             "~/customer/forumsubscriptions/?page=4".ShouldMapTo<CustomerController>(c => c.ForumSubscriptions(4));
             "~/customer/deleteforumsubscription/5".ShouldMapTo<CustomerController>(c => c.DeleteForumSubscription(5));
             "~/customer/addressdelete/6".ShouldMapTo<CustomerController>(c => c.AddressDelete(6));
-            "~/customer/addressedit/7".ShouldMapTo<CustomerController>(c => c.AddressEdit(7));
-            "~/customer/addressadd".ShouldMapTo<CustomerController>(c => c.AddressAdd());
+            "~/customer/addressedit/7".ShouldMapTo<CustomerController>(c => c.AddressEdit(7).Result);
+            "~/customer/addressadd".ShouldMapTo<CustomerController>(c => c.AddressAdd().Result);
         }
 
         [Test]
