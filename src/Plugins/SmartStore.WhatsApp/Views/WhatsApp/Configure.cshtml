@@ -1,0 +1,88 @@
+﻿@model SmartStore.WhatsApp.Models.ConfigurationModel
+@using SmartStore.Web.Framework;
+@{
+    Layout = "";
+}
+
+<div class="plugin-actions">
+    <button type="submit" name="save" value="save" class="btn btn-warning">
+        <i class="fa fa-check"></i>
+        <span>@T("Admin.Common.Save")</span>
+    </button>
+</div>	
+
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+
+<div class="alert alert-info">
+    @Html.Raw(@T("Plugins.SmartStore.WhatsApp.AdminInstruction"))
+</div>
+
+@using (Html.BeginForm())
+{
+<div class="adminContent">
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.BaseUrl)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.BaseUrl)
+            @Html.ValidationMessageFor(model => model.BaseUrl)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.Version)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.Version)
+            @Html.ValidationMessageFor(model => model.Version)
+        </div>
+    </div>
+
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.AccessToken)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.AccessToken)
+            @Html.ValidationMessageFor(model => model.AccessToken)
+        </div>
+    </div>
+
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.PhoneNumberId)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.PhoneNumberId)
+            @Html.ValidationMessageFor(model => model.PhoneNumberId)
+        </div>
+    </div>
+
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.Template)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.Template)
+            @Html.ValidationMessageFor(model => model.Template)
+        </div>
+    </div>
+
+    <div class="adminRow">
+        <div class="adminTitle">
+            @Html.SmartLabelFor(model => model.DefaultPhoneNumber)
+        </div>
+        <div class="adminData">
+            @Html.SettingEditorFor(model => model.DefaultPhoneNumber)
+            @Html.ValidationMessageFor(model => model.DefaultPhoneNumber)
+        </div>
+    </div>
+
+</div>
+}

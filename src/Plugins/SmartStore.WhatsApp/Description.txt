@@ -1,0 +1,10 @@
+﻿FriendlyName: WhatsApp
+SystemName: SmartStore.WhatsApp
+Group: Misc
+Version: 4.2.1
+MinAppVersion: 4.2.0
+Author: Olamide James Akinnagbe
+DisplayOrder: 1
+FileName: SmartStore.WhatsApp.dll
+ResourceRootKey: Plugins.SmartStore.WhatsApp
+Url: https://developers.facebook.com/docs/whatsapp/cloud-api/reference/messages
