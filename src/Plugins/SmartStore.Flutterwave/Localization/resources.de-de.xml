@@ -1,0 +1,100 @@
+﻿<Language Name="Deutsch" IsDefault="true" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.Flutterwave" AppendRootKey="false">
+    <Value>Flutterwave</Value>
+  </LocaleResource>
+  <LocaleResource Name="Plugins.Description.SmartStore.Flutterwave" AppendRootKey="false">
+    <Value>Detaillierte Beschreibung zu Flutterwave</Value>
+  </LocaleResource>
+  
+  <!-- (Provider) will be displayed in frontend on payment selection page and in backend on payment configuration list -->
+  <LocaleResource Name="Plugins.FriendlyName.Payments.Flutterwave" AppendRootKey="false">
+    <Value>Flutterwave</Value>
+  </LocaleResource>
+  <!-- (Provider) will be displayed in frontend on payment selection page and in backend on payment configuration list -->
+  <LocaleResource Name="Plugins.Description.Payments.Flutterwave" AppendRootKey="false">
+    <Value>Detallierte Beschreibung zu Flutterwave</Value>
+  </LocaleResource>
+  
+  <LocaleResource Name="Plugins.SmartStore.Flutterwave" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="AdminInstruction">
+        <Value>
+          <![CDATA[
+            Geben Sie zur Einrichtung dieses Plugins nachfolgend Ihre Daten an.
+          ]]>
+        </Value>
+      </LocaleResource>
+      <LocaleResource Name="MyFirstSetting">
+        <Value>Einstellung</Value>
+      </LocaleResource>
+      <LocaleResource Name="MyFirstSetting.Hint">
+        <Value>Hilfstext zur Konfigurationsmöglichkeit.</Value>
+      </LocaleResource>
+      
+      
+      <LocaleResource Name="PictureId">
+        <Value>Bild</Value>
+      </LocaleResource>
+      <LocaleResource Name="PictureId.Hint">
+        <Value>Hier kann der Shop-Administrator ein Bild hochladen, das z.B. in einem Widget ausgegeben werden kann.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Color">
+        <Value>Farbe</Value>
+      </LocaleResource>
+      <LocaleResource Name="Color.Hint">
+        <Value>Hier kann der Shop-Administrator eine Farbe festlegen.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Text">
+        <Value>Text</Value>
+      </LocaleResource>
+      <LocaleResource Name="Text.Hint">
+        <Value>Einfaches Texteingabefeld, das über das [String-Length]-Attribut eine maximale Länge von 3 erlaubt.</Value>
+      </LocaleResource>
+      
+
+      
+      <LocaleResource Name="PaymentInfo">
+        <Value>Nach Abschluß der Bestellung werden Sie zu einem externen Zahlungsanbieter weitergeleitet, auf dessen Seite Sie die Zahlung für Ihre Bestellung durchführen können.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Agreement">
+        <Value>Ich bin mir bewusst, dass meine Daten im Zuge des Zahlungsvorgangs an den Zahlungsanbieter übermittelt werden.</Value>
+      </LocaleResource>
+      <LocaleResource Name="Agreement.Message">
+        <Value>Bitte stimmen Sie zu, dass Ihre Daten im Zuge dieses Zahlungsvorgangs an den Zahlartanbieter übermittelt werden dürfen.</Value>
+      </LocaleResource>
+      <LocaleResource Name="UseSandbox">
+        <Value>Sandbox nutzen</Value>
+      </LocaleResource>
+      <LocaleResource Name="UseSandbox.Hint">
+        <Value>Bestimmt, ob die Zahlungen in der Sandbox des Payment-Anbieters ausgeführt werden.</Value>
+      </LocaleResource>
+      <LocaleResource Name="AccountId">
+        <Value>Account-Id</Value>
+      </LocaleResource>
+      <LocaleResource Name="AccountId.Hint">
+        <Value>Geben Sie hier die Account-ID an, die Ihnen vom Zahlungsanbieter übermittelt wurde.</Value>
+      </LocaleResource>
+      <LocaleResource Name="AccountPassword">
+        <Value>Passwort</Value>
+      </LocaleResource>
+      <LocaleResource Name="AccountPassword.Hint">
+        <Value>Geben Sie hier das Passwort an, das Ihnen vom Zahlungsanbieter übermittelt wurde.</Value>
+      </LocaleResource>
+      
+      <LocaleResource Name="AdditionalFee">
+        <Value>Zusätzliche Gebühren</Value>
+      </LocaleResource>
+      <LocaleResource Name="AdditionalFee.Hint">
+        <Value>Zusätzliche Gebühren, die dem Kunden für die Inanspruchnahme dieser Zahlart berechnet werden sollen.</Value>
+      </LocaleResource>
+      <LocaleResource Name="AdditionalFeePercentage">
+        <Value>Zusätzliche Gebühren (prozentual)</Value>
+      </LocaleResource>
+      <LocaleResource Name="AdditionalFeePercentage.Hint">
+        <Value>Zusätzliche prozentuale Gebühr. Die konfigurierte Gebühr wird als fester Wert verwendet, falls diese Option nicht aktiviert ist.</Value>
+      </LocaleResource>
+      
+      
+    </Children>
+  </LocaleResource>
+</Language>

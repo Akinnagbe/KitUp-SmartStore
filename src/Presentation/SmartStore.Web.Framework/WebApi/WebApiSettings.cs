@@ -17,6 +17,7 @@ namespace SmartStore.Web.Framework.WebApi
         public bool NoRequestTimestampValidation { get; set; }
         public bool AllowEmptyMd5Hash { get; set; }
         public int MaxTop { get; set; }
+        public string CorsUrls { get; set; }
         public int MaxExpansionDepth { get; set; }
     }
 }

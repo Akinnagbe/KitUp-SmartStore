@@ -30,6 +30,9 @@ namespace SmartStore.WebApi.Models
         [SmartResourceDisplayName("Plugins.Api.WebApi.MaxExpansionDepth")]
         public int MaxExpansionDepth { get; set; }
 
+        [SmartResourceDisplayName("Plugins.Api.WebApi.CorsUrls")]
+        public string CorsUrls { get; set; }
+
         [SmartResourceDisplayName("Plugins.Api.WebApi.LogUnauthorized")]
         public bool LogUnauthorized { get; set; }
 
@@ -45,6 +48,7 @@ namespace SmartStore.WebApi.Models
                 MaxTop = settings.MaxTop;
                 MaxExpansionDepth = settings.MaxExpansionDepth;
                 LogUnauthorized = settings.LogUnauthorized;
+                CorsUrls = settings.CorsUrls;
             }
             else
             {

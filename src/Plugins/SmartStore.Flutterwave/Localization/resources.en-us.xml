@@ -1,0 +1,69 @@
+﻿<Language Name="English" IsDefault="false" IsRightToLeft="false">
+  <LocaleResource Name="Plugins.FriendlyName.SmartStore.Flutterwave" AppendRootKey="false">
+    <Value>Flutterwave</Value>
+  </LocaleResource>
+  <LocaleResource Name="Plugins.Description.SmartStore.Flutterwave" AppendRootKey="false">
+    <Value>Detailed description for Flutterwave</Value>
+  </LocaleResource>
+  
+  <!-- (Provider name) will be displayed in frontend on payment selection page and in backend on payment configuration list -->
+  <LocaleResource Name="Plugins.FriendlyName.Payments.Flutterwave" AppendRootKey="false">
+    <Value>Flutterwave</Value>
+  </LocaleResource>
+  <!-- (Provider description) will be displayed in frontend on payment selection page and in backend on payment configuration list -->
+  <LocaleResource Name="Plugins.Description.Payments.Flutterwave" AppendRootKey="false">
+    <Value>Flutterwave Payment Integration</Value>
+  </LocaleResource>
+  
+  <LocaleResource Name="Plugins.SmartStore.Flutterwave" AppendRootKey="false">
+    <Children>
+      <LocaleResource Name="AdminInstruction">
+        <Value>
+          <![CDATA[
+            Enter your data below to configure this plugin.
+          ]]>
+        </Value>
+      </LocaleResource>
+     
+
+      
+      <LocaleResource Name="BaseUrl">
+        <Value>Base Url</Value>
+      </LocaleResource>
+      <LocaleResource Name="BaseUrl.Hint">
+        <Value>Flutterwave Base Url e.g. https://api.flutterwave.com</Value>
+      </LocaleResource>
+      <LocaleResource Name="PublicKey">
+        <Value>PublicKey</Value>
+      </LocaleResource>
+      <LocaleResource Name="PublicKey.Hint">
+        <Value>Get your public key from your dashboard.</Value>
+      </LocaleResource>
+      <LocaleResource Name="PrivateKey">
+        <Value>PrivateKey</Value>
+      </LocaleResource>
+      <LocaleResource Name="PrivateKey.Hint">
+        <Value>Get your private key from your dashboard.</Value>
+      </LocaleResource>
+      <LocaleResource Name="ApiVersion">
+        <Value>Api Version</Value>
+      </LocaleResource>
+      <LocaleResource Name="PrivateKey.Hint">
+        <Value>Api Version e.g. v3</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="InvalidBaseUrl">
+        <Value>Base Url cannot be an empty string</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="InvalidPublicKey">
+        <Value>Public key cannot be an empty string</Value>
+      </LocaleResource>
+
+      <LocaleResource Name="InvalidPrivateKey">
+        <Value>Secret key cannot be an empty string</Value>
+      </LocaleResource>
+      
+    </Children>
+  </LocaleResource>
+</Language>

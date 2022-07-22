@@ -66,92 +66,103 @@
 
 @helper TabOptions()
 {
-    <table class="adminContent">
-        <tr>
-            <td class="adminTitle">
-                @Html.SmartLabelFor(model => model.ApiOdataUrl)
-            </td>
-            <td class="adminData">
-				<div class="form-control-plaintext">
-					<a href="@Model.ApiOdataUrl" target="_blank">@Model.ApiOdataUrl</a>
-				</div>
-            </td>
-        </tr>
-        <tr>
-            <td class="adminTitle">
-                @Html.SmartLabelFor(model => model.ApiOdataMetadataUrl)
-            </td>
-            <td class="adminData">
-				<div class="form-control-plaintext">
-					<a href="@Model.ApiOdataMetadataUrl" target="_blank">@Model.ApiOdataMetadataUrl</a>
-				</div>
-            </td>
-        </tr>
-		<tr>
-			<td class="adminTitle">
-				@Html.SmartLabelFor(model => model.SwaggerUrl)
-			</td>
-			<td class="adminData">
-				<div class="form-control-plaintext">
-					<a href="@Model.SwaggerUrl" target="_blank">@Model.SwaggerUrl</a>
-				</div>
-			</td>
-		</tr>
-        <tr>
-            <td class="adminTitle">
-                @Html.SmartLabelFor(model => model.ValidMinutePeriod)
-            </td>
-            <td class="adminData">
-                @Html.EditorFor(model => model.ValidMinutePeriod, new { postfix = @T("Time.Minutes").Text })
-                @Html.ValidationMessageFor(model => model.ValidMinutePeriod)
-            </td>
-        </tr>
-		<tr>
-			<td class="adminTitle">
-				@Html.SmartLabelFor(model => model.NoRequestTimestampValidation)
-			</td>
-			<td class="adminData">
-				@Html.EditorFor(model => model.NoRequestTimestampValidation)
-				@Html.ValidationMessageFor(model => model.NoRequestTimestampValidation)
-			</td>
-		</tr>
-		<tr>
-			<td class="adminTitle">
-				@Html.SmartLabelFor(model => model.AllowEmptyMd5Hash)
-			</td>
-			<td class="adminData">
-				@Html.EditorFor(model => model.AllowEmptyMd5Hash)
-				@Html.ValidationMessageFor(model => model.AllowEmptyMd5Hash)
-			</td>
-		</tr>
-		<tr>
-			<td class="adminTitle">
-				@Html.SmartLabelFor(model => model.MaxTop)
-			</td>
-			<td class="adminData">
-				@Html.EditorFor(model => model.MaxTop)
-				@Html.ValidationMessageFor(model => model.MaxTop)
-			</td>
-		</tr>
-		<tr>
-			<td class="adminTitle">
-				@Html.SmartLabelFor(model => model.MaxExpansionDepth)
-			</td>
-			<td class="adminData">
-				@Html.EditorFor(model => model.MaxExpansionDepth)
-				@Html.ValidationMessageFor(model => model.MaxExpansionDepth)
-			</td>
-		</tr>
-        <tr>
-            <td class="adminTitle">
-                @Html.SmartLabelFor(model => model.LogUnauthorized)
-            </td>
-            <td class="adminData">
-                @Html.EditorFor(model => model.LogUnauthorized)
-                @Html.ValidationMessageFor(model => model.LogUnauthorized)
-            </td>
-        </tr>
-    </table>
+<table class="adminContent">
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.ApiOdataUrl)
+        </td>
+        <td class="adminData">
+            <div class="form-control-plaintext">
+                <a href="@Model.ApiOdataUrl" target="_blank">@Model.ApiOdataUrl</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.ApiOdataMetadataUrl)
+        </td>
+        <td class="adminData">
+            <div class="form-control-plaintext">
+                <a href="@Model.ApiOdataMetadataUrl" target="_blank">@Model.ApiOdataMetadataUrl</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.SwaggerUrl)
+        </td>
+        <td class="adminData">
+            <div class="form-control-plaintext">
+                <a href="@Model.SwaggerUrl" target="_blank">@Model.SwaggerUrl</a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.ValidMinutePeriod)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.ValidMinutePeriod, new { postfix = @T("Time.Minutes").Text })
+            @Html.ValidationMessageFor(model => model.ValidMinutePeriod)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.NoRequestTimestampValidation)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.NoRequestTimestampValidation)
+            @Html.ValidationMessageFor(model => model.NoRequestTimestampValidation)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.AllowEmptyMd5Hash)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.AllowEmptyMd5Hash)
+            @Html.ValidationMessageFor(model => model.AllowEmptyMd5Hash)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.MaxTop)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.MaxTop)
+            @Html.ValidationMessageFor(model => model.MaxTop)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.MaxExpansionDepth)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.MaxExpansionDepth)
+            @Html.ValidationMessageFor(model => model.MaxExpansionDepth)
+        </td>
+    </tr>
+
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.MaxExpansionDepth)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.MaxExpansionDepth)
+            @Html.ValidationMessageFor(model => model.MaxExpansionDepth)
+        </td>
+    </tr>
+
+    <tr>
+        <td class="adminTitle">
+            @Html.SmartLabelFor(model => model.LogUnauthorized)
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.LogUnauthorized)
+            @Html.ValidationMessageFor(model => model.LogUnauthorized)
+        </td>
+    </tr>
+</table>
 }
 
 <script>

@@ -80,6 +80,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStore.Plugin1", "Plugi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStore.WhatsApp", "Plugins\SmartStore.WhatsApp\SmartStore.WhatsApp.csproj", "{0C8B9038-95A9-4C6A-B8FA-A357593D1B2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartStore.Flutterwave", "Plugins\SmartStore.Flutterwave\SmartStore.Flutterwave.csproj", "{053197D4-AD2A-4413-986D-BF1BF19587C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -696,6 +698,30 @@ Global
 		{0C8B9038-95A9-4C6A-B8FA-A357593D1B2E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0C8B9038-95A9-4C6A-B8FA-A357593D1B2E}.Release|x86.ActiveCfg = Release|Any CPU
 		{0C8B9038-95A9-4C6A-B8FA-A357593D1B2E}.Release|x86.Build.0 = Release|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Debug|x86.Build.0 = Debug|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.EFMigrations|Any CPU.ActiveCfg = EFMigrations|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.EFMigrations|Any CPU.Build.0 = EFMigrations|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.EFMigrations|Mixed Platforms.ActiveCfg = EFMigrations|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.EFMigrations|Mixed Platforms.Build.0 = EFMigrations|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.EFMigrations|x86.ActiveCfg = EFMigrations|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.EFMigrations|x86.Build.0 = EFMigrations|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.PluginDev|Any CPU.ActiveCfg = PluginDev|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.PluginDev|Any CPU.Build.0 = PluginDev|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.PluginDev|Mixed Platforms.ActiveCfg = PluginDev|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.PluginDev|Mixed Platforms.Build.0 = PluginDev|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.PluginDev|x86.ActiveCfg = PluginDev|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.PluginDev|x86.Build.0 = PluginDev|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Release|x86.ActiveCfg = Release|Any CPU
+		{053197D4-AD2A-4413-986D-BF1BF19587C7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -724,6 +750,7 @@ Global
 		{936FFF56-5CFB-453F-9633-C6655DF1C882} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{BD941901-DDD7-4C0A-9919-C8B623C9F323} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 		{0C8B9038-95A9-4C6A-B8FA-A357593D1B2E} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
+		{053197D4-AD2A-4413-986D-BF1BF19587C7} = {7881B112-7843-4542-B1F7-F99553FB9BB7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59B852CE-9608-479C-A92B-7EE2DE161049}
